@@ -1,0 +1,508 @@
+/* Homepage-1 */
+* {
+margin: 0;
+margin-bottom: 5px;
+text-align: center;
+font-family: poppins, sans-serif;
+list-style: none;
+border: none;
+}
+
+button {
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+}
+#gap {
+height: 1px;
+background-color: #6D5C7C;
+margin: 60px;
+}
+
+header {
+/*I dont know how but we can add it so that the header follows you down the page */
+display: flex;
+justify-content: space-between;
+color: #ffffff;
+background: linear-gradient(to right, #6D5C7C 0%, #90829B 100%);
+box-shadow: 0 2px 5px rgb(0, 0, 3);
+}
+
+.Logo img {
+max-width: 250px; 
+height: auto;
+align-items: center;
+}
+
+.Profile p {
+margin: 100px;
+color: white;
+border-radius: 4px;
+cursor: pointer;
+}
+
+#hideLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+#sideBarNav li:hover {
+  color: #6D5C7C;
+  font-weight: bold;
+  background-color: #F2BBC9;
+}
+
+#menuBtn {
+margin: 100px;
+color: white;
+border-radius: 4px;
+cursor: pointer;
+}
+
+#sideBarNav {
+position: fixed; 
+top: 0;
+left: -220px;  
+width: 220px;
+height: 100vh;
+background-color: #8A038C;
+padding-top: 20px;
+box-shadow: 2px 0 5px rgb(0, 0, 3);
+}
+
+#sideBarNav li {
+padding: 15px 20px;
+color: white;
+}
+
+.closeBtn {
+background-color: #80748C;
+}
+
+.closeBtn button {
+cursor: pointer;
+padding: 10px 15px;
+font-weight: bold;
+color: black;
+background: none;
+font-size: 16px;
+}
+
+
+footer {
+display: flexbox;
+padding: 80px;
+background-color: #80748C;
+color: white;
+}
+
+#menuBtn:hover, .Login Button:hover, .closeBtn button:hover, .Profile p:hover  {
+color: black;
+background-color: #F2BBC9;
+}
+
+.Module-Specific {
+display: flex;        
+gap: 10px;             
+justify-content: center;  
+padding: 10px;
+background-color: #f0f0f0;
+border-radius: 4px;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+.Module-Specific container {
+background-color: #F2BBC9;
+padding: 10px;
+border-radius: 8px;
+width: 600px;           
+justify-content: center;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+.Module-Specific img {
+width: 95%;            
+height: auto;
+border-radius: 4px;
+}
+
+#picOne {
+display: contents;
+}
+
+.Announcement-Specific {
+display: grid;           /* Put modules side by side */
+gap: 3px;              
+justify-content: Left; 
+padding: 4px;
+background-color: #f0f0f0;
+border-radius: 4px;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+.Announcement-Specific container {
+background-color: #F2BBC9;
+padding: 10px;
+border-radius: 2px;
+width: 900px;           
+justify-content: center;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+.Timetable-Specific {
+background-color: #f0f0f0;
+border-radius: 4px;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+.Timetable-Specific container {
+background-color: #F2BBC9;
+padding: 10px;
+border-radius: 2px;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+.Email-Specific {
+background-color: #f0f0f0;
+border-radius: 4px;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+.Email-Specific container {
+  background: #f5f5f5;
+padding: 10px;
+border-radius: 2px;
+box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1)
+}
+
+/* CSS Code for the Profile!! */
+.profHeader {
+display: grid;
+justify-content: center;
+padding: 25px;
+}
+
+.pfp {
+  width: 90px;
+  height: 90px; 
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Module Page */
+
+.modules {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.modules container {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  width: 30%;
+}
+#FavModules {
+  background-color: #8A038C;
+}
+
+#currentModules {
+  background-color: #e0b2bd;
+}
+
+#pastModules {
+  background-color: #80748C;
+}
+
+.learnMore {
+  color: #000000;
+}
+
+.learnMore:hover {
+  color: #8A038C;
+  font-weight: bold;
+}
+
+#announcements {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+#announcements container {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  width: 30%;
+}
+#announcementCard {
+  color: #000000;
+  font-size: 25px;
+}
+
+#announcementCard:hover {
+  color: #8A038C;
+  font-weight: bold;
+  text-size-adjust: inherit;
+}
+
+#moduleContent {
+  margin: 60px;
+}
+
+#modContent:hover {
+  color: white;
+}
+
+#modContent {
+border-radius: 10px;
+padding: 10px;
+background: linear-gradient(to left, #8a038c00, #8a038c45);
+box-shadow: 0 8px 5px rgba(0,0,0,0.21);
+}
+
+#modContent:hover {
+background: linear-gradient(to right, #8a038c84, #8a038c6c);
+}
+
+/*Styling for announcement cards SPECIFICALLY */
+
+#announcementContent {
+margin: 50px;
+padding: 40px;
+box-shadow: 0 4px 5px rgba(0,0,0,0.10);
+}
+
+#announcementContent:hover {
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+#smallerGap {
+  color: #0000000e;
+}
+
+/* Settings */
+
+/* PAT */
+#Widget {
+  display: flex;
+  flex-direction: row;
+}
+
+#widgetPat {
+  width: 40%;
+  margin: 50px;
+  padding: 100px;
+  border-radius: 20px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+.WidgetSpecific {
+  background-color: #6D5C7C;
+}
+
+#listForPat {
+  background-color: #6D5C7C;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+#listForPat ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 50px;
+}
+
+.itemPat {  
+  justify-content: center;
+  align-items: center;
+  display: flex;  
+  flex: 1;     
+  color: white;
+  height: 100%;
+}
+
+.itemPat:hover {
+  background-color: #8A038C;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+/* Ticket page*/
+h1.ticketTxt {
+  background-color: #e0b2bd;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  padding: 15px;
+  z-index: 1;
+  top: 20px;
+}
+
+.ticketTxt {
+  color: white;
+}
+
+#ticketForm {
+  margin-top: -10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;  
+  flex-direction: column;
+  gap: 20px;
+  background-color: #6D5C7C;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+  z-index: 0;
+}
+
+#ticketForm select {
+width: 500px;
+border-radius: 10px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+#ticketForm textarea {
+  border-radius: 10px;
+  width: 500px;
+  height: 150px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+#ticketForm button {
+  border-radius: 10px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+#helpIMG {
+  width: 340px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 1px 5px 4.5px rgba(0,0,0,0.60);
+}
+
+/* Assignment Page */
+
+#listForAss {
+  background-color: #6D5C7C;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+#listForAss ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 50px;
+}
+
+.itemASS {  
+  justify-content: center;
+  align-items: center;
+  display: flex;  
+  flex: 1;     
+  color: white;
+  height: 100%;
+}
+
+.itemASS:hover {
+  background-color: #8A038C;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+/* ThatOne*/
+
+#thatOne {
+  background-color: #8a038c77;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+}
+
+#linktoGradeMap {
+display: grid;
+justify-content: center;
+background-color: #8a038c77;
+color: white;
+box-shadow: 0 4px 5px rgba(0,0,0,0.20);
+font-size: 20px;
+}
+
+#linktoGradeMap:hover {
+color: #8A038C;
+text-shadow: #000000;
+}
+
+/*Timetable */
+
+#timetable{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-collapse: collapse;
+}
+
+.slot {
+  background-color: #80748c62;
+}
+.slotEnd {
+  background-color: #80748c29;
+}
+.weekDay {
+background-color: #8A038C;
+}
+
+.weekEnd {
+  background-color: #8a038c86;
+}
+
+.Time, .weekDay, .weekEnd, .Date {
+  padding: 15px;
+    color: white;
+font-weight: bold;
+}
+
+.Time, .Date {
+  background-color: #6D5C7C;
+}
+
+#AttendanceOverall {
+  display: flex;
+  flex-direction: row;
+  background-color: #8A038C;
+  margin-left: 500px;
+  margin-right: 500px;
+  justify-content: space-between;
+  border-radius: 20px;
+}
+
+#Present {
+  background-color: #2ea104d9;
+    width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+#Late {
+  background-color: #da640ad9;
+    width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+#Absent {
+  background-color: #a10404d9;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.AttendanceInsight {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  border-radius: 100px;
+  justify-content: center;
+}
+
+.BackLink {
+  text-align: left;
+}

@@ -1,0 +1,6 @@
+open terminal
+
+put this;     php -S localhost:8000
+
+click the link below!
+http://localhost:8000/Login.html.php
