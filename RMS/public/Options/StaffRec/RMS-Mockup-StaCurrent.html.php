@@ -1,5 +1,5 @@
 <?php
-require "../../Includes/RMS-Mockup-HEADER.html";
+require "../../../Includes/RMS-Mockup-HEADER.html";
 ?>
 <div id="list">
     <ul>
@@ -38,5 +38,5 @@ require "../../Includes/RMS-Mockup-HEADER.html";
 </section>
 
 <?php
-require "../../Includes/RMS-Mockup-FOOTER.html";
+require "../../../Includes/RMS-Mockup-FOOTER.html";
 ?>

@@ -60,7 +60,6 @@ cursor: pointer;
 #sideBarNav {
 position: fixed; 
 top: 0;
-left: -220px;  
 width: 220px;
 height: 100vh;
 background-color: #8A038C;
