@@ -55,15 +55,10 @@ RMS:
 
 \- The controller and database object type,  (bring across from PHP module, modify to fit)
 
+* I've copied across the functions now and have the base template in; you will just need to connect the classes to index.php (uncommenting them)
+once Jonathan has finished them. Your job remains to be making sure that when people are working on the controller that navigation remains functional and to make sure noone overwrites anyone else's code. 
+* Please let me know if there's something else you'd like toy. Try being proactive if you can; I hopefully haven't stepped on your toes too much but I needed to standardise the controllers across the Commercial and RMS, and thought having the base layout would be helpful for you.
 
-
-* What I need from you are the frontend functions that will request data from and send data to the database. You should be able to bring across the database object type from the PHP module. This will be serving as a general purpose database access function for accessing all the tables. I also need you to carry across the function to create and connect to the database from the PHP module; I should be able to pass in the same parameters as before and have the website connect.
-
-
-
-* You'll need you to carry across the loadTemplate function so the controller can render the pages, as well as copying across and modifying the controller object to match up with the classes Jonathan is making.
-* Everyone will be in contact with you at some point to work on the controller to render their page, so I need you to work with them in loading the templates and page content in the correct order. In essence, for this part, I need you to make sure that when features are done and branches are being merged with the controller, that other people are aware and code is not being overwritten.
-* For table names; use 2.2.1.2 and all of section 4.4 as a guideline. It's really important they match Jonathan's classes so keep in close contact with him.
 
 
 
@@ -103,7 +98,8 @@ Commercial:
 
 
 * Your work, while still important, is going to rely on the work of the RMS team. I've decided to give you the home page to work on. I believe there's a design for it in the mockups already; the main things that may be additions is a way to get into course searching, whether that be a search bar in the navbar at the top or a dedicated search bar underneath the university about us information. Make something up for that info for now, as we don't have that info from WUC yet.
-* The controller setup will be identical to the RMS, however you'll only be accessing the course, course-module and module tables. Keep in close contact with Divine, as the closer it can match, the better. You'll also need to copy over the same functions like loadTemplate. Contact Jonathan about the class objects, and if you can, help him develop those. 
+
+* I've copied across the functions now and have the base template in for the controller; you will just need to connect the classes to index.php (uncommenting them) once Jonathan has finished them. Your job remains to be making sure that when people are working on the controller that navigation remains functional and to make sure noone overwrites anyone else's code.
 
 
 
