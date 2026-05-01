@@ -104,6 +104,40 @@ background-color: #F2BBC9;
   height: 50px;
 }
 
+.Home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "left right"
+        "bottom bottom";
+    gap: 10px;
+}
+
+/* first two boxes side-by-side */
+.ListHome:nth-child(1) {
+  border-radius: 10px;
+    grid-area: left;
+    background: #6D5C7C;
+    padding: 100px;
+margin-left: 90px;
+}
+
+.ListHome:nth-child(2) {
+  border-radius: 10px;
+    grid-area: right;
+    background: #6D5C7C;
+    padding: 100px;
+}
+
+/* bottom full-width box */
+.ListHome2 {
+  border-radius: 10px;
+    grid-area: bottom;
+        background: #6D5C7C;
+    padding: 100px;
+}
+
+
 .item {  
   justify-content: center;
   align-items: center;

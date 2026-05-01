@@ -4,12 +4,21 @@ require "../Includes/RMS-Mockup-HEADER.html";
 
 <h1>RMS</h1>
 
-<div class="ContentForDash" id="Tasks"></div>
+<div class="Home">
 
-<div class="ContentForDash" id="Tasks"></div>
+<div class="ListHome">
+    <p>Tickets</p>
+</div>
 
-<div class="ContentForDash" id="Tasks2"></div>
+<div class="ListHome">
+    <p>Pending Tasks</p>
+</div>
+
+<div class="ListHome2">
+    <p>To Do</p>
+</div>
+</div>
 
 <?php
 require "../Includes/RMS-Mockup-FOOTER.html";
-?>
+?> 
