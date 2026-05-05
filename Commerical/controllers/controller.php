@@ -43,205 +43,249 @@ class controllerCommercial {
 
     }
 
-    public function test() {
+    public function Home() {
 
-    echo loadTemplate('../templates/index.html.php', []);
+    echo loadTemplate('../templates/index.html.php', [
+        'title' => 'Home',
+            'linkOutput' => '<a href="/"></a>',
+            'subjectSearch' => '',
 
+            'output' => loadTemplate('../Templates/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
+        
+        ])]);
     }
 
-    public function about() {
-        echo loadTemplate('../About/Website-AboutWoodlands.html.php', [
+    public function About() {
+        echo loadTemplate('../Templates/About/Website-AboutWoodlands.html.php', [
             'title' => 'About Woodlands',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/About"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function awards() {
-        echo loadTemplate('../About/Website-Awards.html.php', [
+
+    public function Awards() {
+        echo loadTemplate('../Templates/About/Website-Awards.html.php', [
             'title' => 'Awards',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Awards"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function news() {
-        echo loadTemplate('../About/Website-News.html.php', [
+
+    public function News() {
+        echo loadTemplate('../Templates/About/Website-News.html.php', [
             'title' => 'News',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/News"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function research() {
-        echo loadTemplate('../About/Website-Research.html.php', [
+
+    public function Research() {
+        echo loadTemplate('../Templates/About/Website-Research.html.php', [
             'title' => 'Research',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Research"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function services() {
-        echo loadTemplate('../About/Website-Services.html.php', [
+
+    public function Services() {
+        echo loadTemplate('../Templates/About/Website-Services.html.php', [
             'title' => 'Services',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Services"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/About/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
 
-    public function contact() {
-        echo loadTemplate('../Contact/Website-Contact.html.php', [
+    public function Contact() {
+        echo loadTemplate('../Templates/Contact/Website-Contact.html.php', [
             'title' => 'Contact',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Contact"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Contact/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Contact/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
 
-
-    public function accomodation() {
-        echo loadTemplate('../Life/Webiste-Accomodation.html.php',[
-            'title' => 'Accomodation',
-            'linkOutput' => $linkOutput,
+    public function Accommodation() {
+        echo loadTemplate('../Templates/Life/Website-Accommodation.html.php',[
+            'title' => 'Accommodation',
+            'linkOutput' => '<a href="/Accommodation"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function atWoodlands() {
-        echo loadTemplate('../Life/Webiste-AtWoodlands.html.php',[
+
+    public function AtWoodlands() {
+        echo loadTemplate('../Templates/Life/Website-AtWoodlands.html.php',[
             'title' => 'At Woodlands',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/AtWoodLands"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
+
     public function OpenDays() {
-        echo loadTemplate('../Life/index.html.php',[
+        echo loadTemplate('../Templates/Life/Website-OpenDays.html.php',[
             'title' => 'Open Days',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/OpenDays"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function studentLife() {
-        echo loadTemplate('../Life/Website-Student-Life.html.php',[
+
+    public function StudentLife() {
+        echo loadTemplate('../Templates/Life/Website-Student-Life.html.php',[
             'title' => 'Student Life',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/StudentLife"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function studentUnion() {
-        echo loadTemplate('../Life/Website-StudentUnion.html.php',[
+
+    public function StudentUnion() {
+        echo loadTemplate('../Templates/Life/Website-StudentUnion.html.php',[
             'title' => 'Student Union',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/StudentUnion"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function support() {
-        echo loadTemplate('../Life/Webiste-Support.html.php',[
+
+    public function Support() {
+        echo loadTemplate('../Templates/Life/Webiste-Support.html.php',[
             'title' => 'Support',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Support"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Life/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
 
-    public function course() {
-        echo loadTemplate('../Study/Website-Course.html.php', [
+    public function Course() {
+
+
+        echo loadTemplate('../Templates/Study/Website-Course.html.php', [
             'title' => 'Courses',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Course"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Study/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Study/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function study() {
-        echo loadTemplate('../Study/Website-Study.html.php', [
+
+    public function Study() {
+        echo loadTemplate('../Templates/Study/Website-Study.html.php', [
             'title' => 'Study',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Study"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Study/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+            'output' => loadTemplate('../Templates/Study/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
-    public function subjects() {
-        echo loadTemplate('../Study/Website-Subjects.html.php', [
+
+    public function Subjects() {
+
+
+        echo loadTemplate('../Templates/Study/Website-Subjects.html.php', [
             'title' => 'Subjects',
-            'linkOutput' => $linkOutput,
+            'linkOutput' => '<a href="/Subjects"></a>',
             'subjectSearch' => '',
-            'output' => loadTemplate('../Study/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
+            
+            'output' => loadTemplate('../Templates/Study/' . ltrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/') . '.html.php', [
 
-                'loginLinkOutput' => $loginLinkOutput,
-                'managementOutput' => $managementOutput
+                'loginLinkOutput' => $this->getloginLink(),
+                'managementOutput' => $this->getManagementOutput()
 
         ])]);
     }
 
+    private function getManagementOutput(){
+        return '';
+    }
 
+    private function getLoginLink(){
+        return '<a href="/login">Log in</a>';
+    }
 }
 
 /*
 
     An example of the loadTemplate function in action
 
-        echo loadTemplate('../templates/layout.html.php', [
+        echo loadTemplate('../templates/... .html.php', [
         'title' => 'UON Home',
         'linkOutput' => $linkOutput,
         'subjectSearch' => '',
