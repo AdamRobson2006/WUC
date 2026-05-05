@@ -30,7 +30,7 @@ $pdo = new PDO('mysql:host=mysql;dbname=wuc-schema;charset=utf8', 'root', 'root'
 $assignmentsTable =  new \CSY2089\databaseTable($pdo, 'assignments', 'assignment_id', '\assignment1\Entity\assignment', []);;
 $attendanceTable = new \CSY2089\databaseTable($pdo, 'attendance', 'attendance_id', '\WUC\Entity\attendance', []);
 $chatlogsTable = new \CSY2089\databaseTable($pdo, 'chat_logs', 'message_id', '\WUC\Entity\chatLog', []);
-$courseModulesLinkTable =  = new \CSY2089\databaseTable($pdo, 'course_modules', ['course_id', 'module_id'], '\WUC\Entity\courseModule', []);
+$courseModulesLinkTable = new \CSY2089\databaseTable($pdo, 'course_modules', ['course_id', 'module_id'], '\WUC\Entity\courseModule', []);
 $coursesTable =  new \CSY2089\databaseTable($pdo, 'courses', 'course_id', '\WUC\Entity\course', []);
 $emergencyContactsTable = new \CSY2089\databaseTable($pdo, 'emergency_contacts', 'contact_id', '\WUC\Entity\emergencyContact', []);
 $moduleAssignmentsTable = new \CSY2089\databaseTable($pdo, 'module_assignments', ['module_id', 'assignment_id'], '\WUC\Entity\moduleAssignment', []);;
