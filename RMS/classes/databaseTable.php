@@ -1,5 +1,5 @@
 <?php
-namespace CSY2089;
+namespace WUC;
 
 class databaseTable {
 

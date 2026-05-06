@@ -7,4 +7,4 @@ services:
     ports:
       - "3300"
     volumes:
-      - ./src:/var/www/html
+      - ./:/var/www/html

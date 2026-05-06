@@ -6,7 +6,7 @@ class ticket {
     public $studentID;
     public $adminID;
     public $problem;
-    public $solved_boot;
+    public $solved_bool;
 
     public function __construct() {
 

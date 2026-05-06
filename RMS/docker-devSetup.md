@@ -12,14 +12,13 @@ cd "C:\Users\docad\OneDrive - The University of Northampton\Course Content\Year 
 
 # 2. Setup PHP & APACHE, using the public folder as the website root
 
-Run this command through the terminal; this will set up the php-apache link
-that will allow the localhost to recognise the webpage, rather than printing
-the contents of the PHP file as plaintext
+docker build -t rms-php .
 
-docker run --rm -d -p 8080:80 -v "${PWD}/public:/var/www/html" php:8.2-apache
+docker run --rm -d -p 8080:80 -v "${PWD}/public:/var/www/html" -v "${PWD}/functions:/var/www/functions" -v "${PWD}/classes:/var/www/classes" -v "${PWD}/controllers:/var/www/controllers" -v "${PWD}/templates:/var/www/templates" rms-php
+
 
 # 3. Go to localhost in your browser of choice
 
 Go to this web link, and you should be seeing the index page: http://localhost:8080
 
-You may need to run this each time upon restart; for some reason that I am unaware of, the docker container deletes itself once you close Docker Desktop.
+You may need to run this each time upon restart; for some reason that I am unaware of, the docker container deletes itself once you close Docker Desktop

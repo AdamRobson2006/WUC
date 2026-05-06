@@ -1,7 +1,7 @@
 <?php
 namespace WUC;
 
-class controllerCommercial; {
+class controllerCommercial {
 
     private $assignmentsTable;
     private $attendanceTable;
@@ -13,16 +13,16 @@ class controllerCommercial; {
     private $modulesTable;
     private $personalTutorialsTable;
     private $recordStatusesTable;
-    private $staffTable
+    private $staffTable;
     private $studentAssignmentsTable;
     private $studentsTable;
-    private $ticketsTable;
-    private $timetable
+    private $ticketsTable;                          
+    private $timetable;
 
 
     // Main Constructor
 
-    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $coursesModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable) {
+    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable) {
 
         $this->assignmentsTable = $assignmentsTable;
         $this->attendanceTable = $attendanceTable;
@@ -43,13 +43,12 @@ class controllerCommercial; {
 
     }
 
-    public function test() {
+    public function home() {
 
-    echo loadTemplate('../templates/index.html.php', []);
+    echo loadTemplate(__DIR__ . '/../templates/index.html.php', []);
 
 
     }
-
 
 }
 

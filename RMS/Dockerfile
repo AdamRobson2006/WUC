@@ -1,14 +1,12 @@
 
 FROM php:8.2-apache
 
-# Enable Apache rewrite just in case (does nothing unless used)
-RUN a2enmod rewrite
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Explicitly set document root
-ENV APACHE_DOCUMENT_ROOT=/var/www/html
+# Point Apache to RMS/public
+ENV APACHE_DOCUMENT_ROOT /var/www/html
 
-# Update Apache config to use that doc root
-RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
-    /etc/apache2/sites-available/*.conf \
-    /etc/apache2/apache2.conf \
-    /etc/apache2/conf-available/*.conf
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
+    /etc/apache2/sites-available/*.conf && \
+    sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' \
+    /etc/apache2/apache2.conf
