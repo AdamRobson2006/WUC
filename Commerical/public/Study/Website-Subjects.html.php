@@ -6,9 +6,10 @@ require "../includes/Website-Mockup-HEADER.html";
 
 <!-- Search Function -->
 <div class="subjectSearch">
-    <h2>Search for a Subject</h2>
-    <input>
-    <button>Search</button>
+    <form method="GET">
+        <input type="text" name="search" placeholder="Search course">
+        <button type="submit">Search</button>
+    </form>
 </div>
 
 <!--Filter Options-->
