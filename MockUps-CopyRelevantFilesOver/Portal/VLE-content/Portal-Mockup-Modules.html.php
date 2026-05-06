@@ -10,17 +10,17 @@ require "../includes/Portal-Mockup-HEADER.html";
 <h2>Favourite Modules</h2>
 
 <section id="FavModules" class="modules">
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
          <h2>Favourite Module 1</h2>
          <p>Description</p>
     <p class="learnMore">Learn More</p>
     </a></container>
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
          <h2>Favourite Module 2</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
     </a></container>
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
         <h2>Favourite Module 3</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
@@ -31,17 +31,17 @@ require "../includes/Portal-Mockup-HEADER.html";
 <h2>Current Modules</h2>
 
 <section id="currentModules" class="modules">
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
         <h2>Current Module 1</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
     </a></container>
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
         <h2>Current Module 2</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
     </a></container>
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
         <h2>Current Module 3</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
@@ -52,17 +52,17 @@ require "../includes/Portal-Mockup-HEADER.html";
 <h2>Past Modules</h2>
 
 <section id="pastModules" class="modules">
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
         <h2>Current Module 1</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
     </a></container>
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
         <h2>Current Module 2</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
     </a></container>
-    <container><a id="hideLink" href="/Portal/VLE-content/Portal-Mockup-Module.html.php" >
+    <container><a id="hideLink" href="/MockUps-CopyRelevantFilesOver/Portal/VLE-content/Portal-Mockup-Module.html.php" >
         <h2>Current Module 3</h2>
          <p>Description</p>
          <p class="learnMore">Learn More</p>
