@@ -28,6 +28,13 @@ background: linear-gradient(to right, #6D5C7C 0%, #90829B 100%);
 box-shadow: 0 2px 5px rgb(0, 0, 3);
 }
 
+footer {
+display: flexbox;
+padding: 80px;
+background-color: #80748C;
+color: white;
+}
+
 .Logo img {
 max-width: 250px; 
 height: auto;
@@ -53,7 +60,8 @@ cursor: pointer;
 }
 
 #menuBtn {
-margin: 100px;
+margin-left: 75px;
+margin-top: 50px;
 color: white;
 border-radius: 4px;
 cursor: pointer;
@@ -62,7 +70,6 @@ cursor: pointer;
 #sideBarNav {
 position: fixed; 
 top: 0;
-left: -220px;  
 width: 220px;
 height: 100vh;
 background-color: #8A038C;
@@ -77,6 +84,7 @@ color: white;
 
 .closeBtn {
 background-color: #80748C;
+text-align: right;
 }
 
 .closeBtn button {
@@ -88,16 +96,9 @@ background: none;
 font-size: 16px;
 }
 
-
-footer {
-display: flexbox;
-padding: 80px;
-background-color: #80748C;
-color: white;
-}
-
 #menuBtn:hover, .Login Button:hover, .closeBtn button:hover, .Profile p:hover  {
 color: black;
+padding: 10px;
 background-color: #F2BBC9;
 }
 
