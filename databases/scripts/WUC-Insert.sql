@@ -108,11 +108,168 @@ VALUES (0106, "Department of Technology")
 INSERT INTO departments (department_id, department_name)
 VALUES (0107, "Department of Education")
 
-
 -- Courses Inserts:
 
+-- Department of Arts and Humanities
 INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
-VALUES (0001, 'Software Engineering', "", ,LOAD_FILE('C:/databases/files/image-test.png'));
+VALUES (1001, 'English Literature', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1002, 'History', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1003, 'Nursing', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1004, 'Fine Arts', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1005, 'Music', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1006, 'Theatre Studies', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1007, 'Linguistics', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1008, 'Cultural Studies', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1009, 'Creative Writing', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1010, 'Anthropology', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1011, 'Religious Studies', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1012, 'Anthropology', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1013, 'Archaeology', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1014, 'Media Studies', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1015, 'Media Studies', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1016, 'Graphic Design', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (1017, 'Digital Media', "", 0101, LOAD_FILE('C:/databases/files/image-test.png'));
+
+-- Department of Social Sciences
+
+-- Department of Science and Engineering
+
+-- Department of Business and Management
+
+-- Department of Health Sciences
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5001, 'Nursing', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5002, 'Medicine', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5003, 'Pharmacy', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5004, 'Dentistry', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5005, 'Nutrition', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5006, 'Public Health', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5007, 'Physiotherapy', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5008, 'Occupational Therapy', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5009, 'Speech Therapy', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5010, 'Medical Laboratory Science', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5011, 'Radiography', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5012, 'Health Informatics', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5013, 'Biomedical Science', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5014, 'Health Administration', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (5015, 'Health Education', "", 0105, LOAD_FILE('C:/databases/files/image-test.png'));
+
+
+-- Department of Technology
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6001, 'Computing', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6002, 'Software Engineering', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6003, 'Information Systems', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6004, 'Computer Networking', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6005, 'Cybersecurity', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6006, 'Data Science', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6007, 'Artificial Intelligence', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6008, 'Web Development', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6009, 'Mobile App Development', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6010, 'Cloud Computing', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6011, 'Internet of Things', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6012, 'Game Development', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6013, 'Artificial Intelligence', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6014, 'Web Development', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6015, 'Augmented Reality', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6016, 'Virtual Reality', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (6017, 'Blockchain Technology', "", 0106, LOAD_FILE('C:/databases/files/image-test.png'));
+
+-- Department of Education
+
+
 
 -- Modules Inserts:
 
