@@ -91,6 +91,10 @@ VALUES (seq_record_statuses.NEXTVAL, TRUE, NOW()); -- 18
 INSERT INTO emergency_contacts (contact_id, first_name, middle_name, surname, phone_number, record_status)
 VALUES (00001226, 'Placeholder', '', 'Contact', '+44 1234', 15);
 
+-- Department Inserts:
+
+-- Degree Inserts:
+
 -- Courses Inserts:
 
 INSERT INTO courses (course_id, course_description, award_map)
@@ -104,7 +108,6 @@ VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.p
 
 INSERT INTO courses (course_id, course_description, award_map)
 VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
-
 
 -- Modules Inserts:
 
