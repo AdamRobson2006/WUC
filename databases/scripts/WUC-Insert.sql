@@ -96,28 +96,23 @@ VALUES (00001226, 'Placeholder', '', 'Contact', '+44 1234', 15);
 INSERT INTO departments (department_id, department_name)
 VALUES (0101, "Department of Arts and Humanities")
 INSERT INTO departments (department_id, department_name)
-VALUES ()
+VALUES (0102, "Department of Social Sciences")
 INSERT INTO departments (department_id, department_name)
-VALUES ()
+VALUES (0103, "Department of Science and Engineering")
 INSERT INTO departments (department_id, department_name)
-VALUES ()
+VALUES (0104, "Department of Business and Management")
 INSERT INTO departments (department_id, department_name)
-VALUES ()
+VALUES (0105, "Department of Health Sciences")
+INSERT INTO departments (department_id, department_name)
+VALUES (0106, "Department of Technology")
+INSERT INTO departments (department_id, department_name)
+VALUES (0107, "Department of Education")
 
 
 -- Courses Inserts:
 
-INSERT INTO courses (course_id, course_description, award_map)
-VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
-
-INSERT INTO courses (course_id, course_description, award_map)
-VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
-
-INSERT INTO courses (course_id, course_description, award_map)
-VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
-
-INSERT INTO courses (course_id, course_description, award_map)
-VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
+INSERT INTO courses (course_id, course_title, course_description, department_id, award_map)
+VALUES (0001, 'Software Engineering', "", ,LOAD_FILE('C:/databases/files/image-test.png'));
 
 -- Modules Inserts:
 
