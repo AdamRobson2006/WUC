@@ -6,7 +6,7 @@ require "../includes/Website-Mockup-HEADER.html";
 
 <!-- Search Function -->
 <div class="subjectSearch">
-    <form method="GET">
+    <form method="GET" action="?page=courseSearch">
         <input type="text" name="search" placeholder="Search course">
         <button type="submit">Search</button>
     </form>
@@ -14,7 +14,6 @@ require "../includes/Website-Mockup-HEADER.html";
 
 <!--Filter Options-->
 <div>
-
 </div>
 <div id="subjectBox">
 

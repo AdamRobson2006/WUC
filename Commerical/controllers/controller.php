@@ -49,6 +49,23 @@ class controllerCommercial {
 
 
     }
+
+    public function courseSearch() {
+        
+    $courses = [];
+
+    if (!empty($_GET['search'])) {
+
+        $search = $_GET['search'];
+
+        $courses = $this->coursesTable->search($search);
+    }
+
+    echo loadTemplate(
+        '../templates/courseSearch.html.php',
+        ['courses' => $courses]
+    );
+    }
 }
 
 /*
