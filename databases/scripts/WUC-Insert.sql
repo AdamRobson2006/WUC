@@ -96,6 +96,16 @@ VALUES (00001226, 'Placeholder', '', 'Contact', '+44 1234', 15);
 INSERT INTO courses (course_id, course_description, award_map)
 VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
 
+INSERT INTO courses (course_id, course_description, award_map)
+VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_description, award_map)
+VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
+
+INSERT INTO courses (course_id, course_description, award_map)
+VALUES (0001, 'Software Engineering', LOAD_FILE('C:/databases/files/image-test.png'));
+
+
 -- Modules Inserts:
 
 INSERT INTO modules (module_id, module_description, award_map)
