@@ -67,12 +67,30 @@ The insertion order is as follows:
 	FOREIGN KEY (record_status)
 	REFERENCES record_statuses(status_id);
 		
+-- Table: Department
+
+	-- Create Command
+
+	CREATE TABLE departments (
+	department_id INT(4) NOT NULL,
+	department_name VARCHAR(255) NOT NULL
+	);
+
+	-- PK Dependency
+
+	ALTER TABLE departments
+	ADD CONSTRAINT pk_departments
+	PRIMARY KEY (department_id);
+
+
 -- Table: courses
 
 	-- Create Command
 
 	CREATE TABLE courses (
+	course_title VARCHAR(255) NOT NULL,
 	course_id INT(4) NOT NULL,
+	department_id INT(4) NOT NULL,
 	course_description VARCHAR(255) NOT NULL,
 	award_map BLOB NOT NULL
 	);
