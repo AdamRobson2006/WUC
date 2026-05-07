@@ -21,4 +21,4 @@ docker run --rm -d -p 8080:80 -v "${PWD}/public:/var/www/html" -v "${PWD}/functi
 
 Go to this web link, and you should be seeing the index page: http://localhost:8080
 
-You may need to run this each time upon restart; for some reason that I am unaware of, the docker container deletes itself once you close Docker Desktop
+You may need to run this each time upon restart; for some reason that I am unaware of, the docker container deletes itself once you close Docker Desktop.

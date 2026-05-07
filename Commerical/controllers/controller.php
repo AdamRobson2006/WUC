@@ -8,6 +8,7 @@ class controllerCommercial {
     private $chatlogsTable;
     private $courseModulesLinkTable;
     private $coursesTable;
+    private $departmentsTable;
     private $emergencyContactsTable;
     private $moduleAssignmentsTable;
     private $modulesTable;
@@ -22,13 +23,14 @@ class controllerCommercial {
 
     // Main Constructor
 
-    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable) {
+    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $departmentsTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable) {
 
         $this->assignmentsTable = $assignmentsTable;
         $this->attendanceTable = $attendanceTable;
         $this->chatlogsTable = $chatlogsTable;
         $this->courseModulesLinkTable = $courseModulesLinkTable;
         $this->coursesTable = $coursesTable;
+        $this->departmentsTable = $departmentsTable
         $this->emergencyContactsTable = $emergencyContactsTable;
         $this->moduleAssignmentsTable = $moduleAssignmentsTable;
         $this->modulesTable = $modulesTable;

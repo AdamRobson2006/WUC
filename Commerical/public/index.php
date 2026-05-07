@@ -34,6 +34,7 @@ $attendanceTable = new \WUC\databaseTable($pdo, 'attendance', 'attendance_id', '
 $chatlogsTable = new \WUC\databaseTable($pdo, 'chat_logs', 'message_id', '\WUC\Entity\chatLog', []);
 $courseModulesLinkTable = new \WUC\databaseTable($pdo, 'course_modules', ['course_id', 'module_id'], '\WUC\Entity\courseModule', []);
 $coursesTable =  new \WUC\databaseTable($pdo, 'courses', 'course_id', '\WUC\Entity\course', []);
+$departmentsTable =  new \WUC\databaseTable($pdo, 'departments', 'department_id', '\WUC\Entity\department', []);
 $emergencyContactsTable = new \WUC\databaseTable($pdo, 'emergency_contacts', 'contact_id', '\WUC\Entity\emergencyContact', []);
 $moduleAssignmentsTable = new \WUC\databaseTable($pdo, 'module_assignments', ['module_id', 'assignment_id'], '\WUC\Entity\moduleAssignment', []);;
 $modulesTable = new \WUC\databaseTable($pdo, 'modules', 'module_id', '\WUC\Entity\module', []);
@@ -45,7 +46,7 @@ $studentsTable = new \WUC\databaseTable($pdo, 'student', 'student_id', '\WUC\Ent
 $ticketsTable = new \WUC\databaseTable($pdo, 'tickets', 'ticket_id', '\WUC\Entity\ticket', []);
 $timetable = new \WUC\databaseTable($pdo, 'timetable', 'timetable_id', '\WUC\Entity\timetableSlot', []);
 
-$controller = new \WUC\controllerCommercial($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable);
+$controller = new \WUC\controllerRMS($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $departmentsTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable);
 
 
 
