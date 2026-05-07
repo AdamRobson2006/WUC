@@ -567,4 +567,3 @@ VALUES (2087, 0001, '2026-05-22 11:59:59');
 
 INSERT INTO student_assignments(
 VALUES (0001, LOAD_FILE('C:/databases/docs/document-test.docx'), 75.00, '2026-06-22 11:59:59');
-

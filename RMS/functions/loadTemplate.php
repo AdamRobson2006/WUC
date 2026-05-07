@@ -7,6 +7,4 @@ function loadTemplate($fileName, $templateVars) {
     $contents = ob_get_clean();
     return $contents;       
 }
-
-
 ?>

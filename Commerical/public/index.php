@@ -3,10 +3,10 @@
 session_start();
 
 
-require_once __DIR__ . '/../functions/connectToDB.php';
-require_once __DIR__ . '/../functions/loadTemplate.php';
-require_once __DIR__ . '/../classes/databaseTable.php';
-require_once __DIR__ . '/../controllers/controller.php';
+require_once __DIR__ . '/../../functions/connectToDB.php';
+require_once __DIR__ . '/../../functions/loadTemplate.php';
+require_once __DIR__ . '/../../classes/databaseTable.php';
+require_once __DIR__ . '/../../controllers/controller.php';
 
 require_once __DIR__ . '/../classes/assignment.php';
 require_once __DIR__ . '/../classes/attendanceLog.php';
@@ -23,11 +23,9 @@ require_once __DIR__ . '/../classes/studentAssignment.php';
 require_once __DIR__ . '/../classes/student.php';
 require_once __DIR__ . '/../classes/ticket.php';
 require_once __DIR__ . '/../classes/timetableSlot.php';
-
-
+require_once __DIR__ . '/../classes/department.php';
 
 $pdo = new PDO('mysql:host=host.docker.internal;dbname=wuc-schema;charset=utf8', 'root', 'root');
-
 
 $assignmentsTable =  new \WUC\databaseTable($pdo, 'assignments', 'assignment_id', '\assignment1\Entity\assignment', []);;
 $attendanceTable = new \WUC\databaseTable($pdo, 'attendance', 'attendance_id', '\WUC\Entity\attendance', []);
@@ -44,11 +42,9 @@ $studentAssignmentsTable = new \WUC\databaseTable($pdo, 'student_assignments', [
 $studentsTable = new \WUC\databaseTable($pdo, 'student', 'student_id', '\WUC\Entity\student', []);
 $ticketsTable = new \WUC\databaseTable($pdo, 'tickets', 'ticket_id', '\WUC\Entity\ticket', []);
 $timetable = new \WUC\databaseTable($pdo, 'timetable', 'timetable_id', '\WUC\Entity\timetableSlot', []);
+$departmentsTable = new \WUC\databaseTable($pdo, 'departments', 'department_id', '\WUC\Entity\department', []);
 
-$controller = new \WUC\controllerCommercial($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable);
-
-
-
+$controller = new \WUC\controllerCommercial($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable, $departmentsTable);
 
 $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
 $uri = trim($uri, '/');

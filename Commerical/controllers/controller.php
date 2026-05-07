@@ -18,11 +18,12 @@ class controllerCommercial {
     private $studentsTable;
     private $ticketsTable;                          
     private $timetable;
+    private $departmentsTable;
 
 
     // Main Constructor
 
-    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable) {
+    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable, $departmentsTable) {
 
         $this->assignmentsTable = $assignmentsTable;
         $this->attendanceTable = $attendanceTable;
@@ -39,15 +40,12 @@ class controllerCommercial {
         $this->studentsTable = $studentsTable;
         $this->ticketsTable = $ticketsTable;
         $this->timetable = $timetable;
-
-
+        $this->departmentsTable = $departmentsTable;
     }
 
     public function home() {
 
-    echo loadTemplate(__DIR__ . '/../templates/index.html.php', []);
-
-
+    echo loadTemplate(__DIR__ . '../templates/index.html.php', []);
     }
 
     public function courseSearch() {
@@ -66,6 +64,16 @@ class controllerCommercial {
         ['courses' => $courses]
     );
     }
+
+    public function subjects() {
+    $departments = $this->departmentsTable->findAll();
+
+    return loadTemplate(
+        __DIR__ . '/../../templates/Website-Subjects.html.php',
+        ['departments' => $departments]
+    );
+}
+
 }
 
 /*
