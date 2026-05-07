@@ -46,7 +46,7 @@ $studentsTable = new \WUC\databaseTable($pdo, 'student', 'student_id', '\WUC\Ent
 $ticketsTable = new \WUC\databaseTable($pdo, 'tickets', 'ticket_id', '\WUC\Entity\ticket', []);
 $timetable = new \WUC\databaseTable($pdo, 'timetable', 'timetable_id', '\WUC\Entity\timetableSlot', []);
 
-$controller = new \WUC\controllerRMS($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $departmentsTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable);
+$controller = new \WUC\controllerCommercial($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $departmentsTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable);
 
 
 

@@ -30,7 +30,7 @@ class controllerCommercial {
         $this->chatlogsTable = $chatlogsTable;
         $this->courseModulesLinkTable = $courseModulesLinkTable;
         $this->coursesTable = $coursesTable;
-        $this->departmentsTable = $departmentsTable
+        $this->departmentsTable = $departmentsTable;
         $this->emergencyContactsTable = $emergencyContactsTable;
         $this->moduleAssignmentsTable = $moduleAssignmentsTable;
         $this->modulesTable = $modulesTable;
