@@ -20,6 +20,11 @@ class controllerRMS {
     private $ticketsTable;                          
     private $timetable;
 
+    
+    private const STATUS_LIVE        = 1;
+    private const STATUS_PROVISIONAL = 2;
+    private const STATUS_DORMANT     = 3;
+
 
     // Main Constructor
 
@@ -46,12 +51,170 @@ class controllerRMS {
     }
 
     public function home() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Home',
+            'output' => loadTemplate(__DIR__ . '/../templates/RMS-Mockup-Home.html.php', [])
+        ]);
+    }
 
+    // --- Student routes ---
 
-    $output = loadTemplate(__DIR__ . '/../templates/RMS-Mockup-Home.html.php', []);
+    public function students() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Student Records',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-StudentRec.html.php', [
+                'students' => $this->studentsTable->findAll()
+            ])
+        ]);
+    }
 
-    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Home', 'output' => $output]);    
-  
+    public function studentProfile() {
+        
+        $id = $_GET['id'] ?? null;
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Student Profile',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/studentRec/RMS-Mockup-StudentProfile.html.php', [
+                'student' => $this->studentsTable->find('student_id', $id)
+            ])
+        ]);
+    }
+
+    public function currentStudents() {
+        
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Current Students',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/studentRec/RMS-Mockup-StuCurrent.html.php', [
+                'students' => $this->studentsTable->find('record_status', self::STATUS_LIVE)
+            ])
+        ]);
+    }
+
+    public function pastStudents() {
+        
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Past Students',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/studentRec/RMS-Mockup-StuPast.html.php', [
+                'students' => $this->studentsTable->find('record_status', self::STATUS_DORMANT)
+            ])
+        ]);
+    }
+
+    public function studentApplications() {
+        
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Student Applications',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/studentRec/RMS-Mockup-StuApplication.html.php', [
+                'students' => $this->studentsTable->find('record_status', self::STATUS_PROVISIONAL)
+            ])
+        ]);
+    }
+
+    // --- Staff routes ---
+
+    public function staff() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Staff Records',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-StaffRec.html.php', [
+                'staff' => $this->staffTable->findAll()
+            ])
+        ]);
+    }
+
+    public function staffProfile() {
+        
+        $id = $_GET['id'] ?? null;
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Staff Profile',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaffProfile.html.php', [
+                'staff' => $this->staffTable->find('staff_id', $id)
+            ])
+        ]);
+    }
+
+    public function currentStaff() {
+        
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Current Staff',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaCurrent.html.php', [
+                'staff' => $this->staffTable->find('record_status', self::STATUS_LIVE)
+            ])
+        ]);
+    }
+
+    public function pastStaff() {
+        
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Past Staff',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaPast.html.php', [
+                'staff' => $this->staffTable->find('record_status', self::STATUS_DORMANT)
+            ])
+        ]);
+    }
+
+    public function staffApplications() {
+        
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Staff Applications',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaApplication.html.php', [
+                'staff' => $this->staffTable->find('record_status', self::STATUS_PROVISIONAL)
+            ])
+        ]);
+    }
+
+    // --- Other routes ---
+
+    public function attendance() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Attendance',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-Attendance.html.php', [
+                'attendance' => $this->attendanceTable->findAll()
+            ])
+        ]);
+    }
+
+    public function timetable() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Timetable',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-Timetable.html.php', [
+                'timetable' => $this->timetable->findAll()
+            ])
+        ]);
+    }
+
+    public function courses() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Courses',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-CourseRec.html.php', [
+                'courses' => $this->coursesTable->findAll()
+            ])
+        ]);
+    }
+
+    public function archive() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Archive',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-Archive.html.php', [
+                'students' => $this->studentsTable->find('record_status', self::STATUS_DORMANT),
+                'staff'    => $this->staffTable->find('record_status', self::STATUS_DORMANT),
+            ])
+        ]);
+    }
+
+    public function tickets() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Tickets',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/tickets/RMS-Mockup-PenTicket.html.php', [
+                'openTickets'   => $this->ticketsTable->find('solved_bool', 0),
+                'closedTickets' => $this->ticketsTable->find('solved_bool', 1),
+            ])
+        ]);
+    }
+
+    public function documents() {
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+            'title'  => 'Documents',
+            'output' => loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-Document.html.php', [])
+        ]);
     }
 
 }
