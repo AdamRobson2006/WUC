@@ -18,7 +18,7 @@ require "../Includes/RMS-Mockup-HEADER.html";
     </section>
 <section class="Cabinet">
     <container id="CabinetCont"><a id="hideLink" href="/Website/Study/Website-Course.html.php" > 
-         <h2>Archive 3</h2>
+         <h2>Student Enrolment</h2>
     <p class="OpenLink">Open</p>
     </a></container>
 
