@@ -338,9 +338,9 @@ input#searchBar {
 }
 
 
-#courseObj {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.courseObj {
+  list-style: none;
+  margin: 0px;
+  padding: 50px
 }
 

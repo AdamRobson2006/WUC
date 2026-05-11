@@ -2,11 +2,11 @@
 namespace WUC\Entity;
 
 class studentAssignment {
-    public $assignmentID;
-    public $studentID;
+    public $assignment_id;
+    public $student_id;
     public $submission;
     public $grade;
-    public $dateOfReturn;
+    public $date_of_return;
 
     public function __construct() {
 

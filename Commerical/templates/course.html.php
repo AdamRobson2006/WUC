@@ -1,5 +1,4 @@
-<div id='courseObj'>
-    <li>
+<div class='courseObj'>
 
     <h2> <?php echo $courseTitle?> </h2>
 
@@ -24,5 +23,6 @@
     </form>
 
 
-    </li>
 </div>
+
+<hr id="gap">

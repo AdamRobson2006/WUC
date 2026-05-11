@@ -3,19 +3,19 @@ namespace WUC\Entity;
 
 class staffMember {
 
-    public $staffID;
-    public $firstName;
-    public $middleName;
-    public $surName;
-    public $currentAddress;
+    public $staff_id;
+    public $first_name;
+    public $middle_name;
+    public $surname;
+    public $current_address;
     public $email;
-    public $phoneNmuber;
-    public $modLeader;
+    public $phone_number;
+    public $mod_leader;
     public $role;
-    public $entryQualifications;
-    public $recordStatus;
+    public $entry_qualifications;
+    public $record_status;
     public $specialism;
-    public $emergencyContact;
+    public $emergency_contact;
 
 
     public function __construct() {

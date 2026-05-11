@@ -2,13 +2,13 @@
 namespace WUC\Entity;
 
 class timetableSlot {
-    public $timetableID;
-    public $moduleCode;
-    public $roomNumber;
-    public $startTime;
-    public $endTime;
+    public $timetable_id;
+    public $module_code;
+    public $room_number;
+    public $start_time;
+    public $end_time;
     public $description;
-    public $regCode;
+    public $reg_code;
 
     public function __construct() {
 
