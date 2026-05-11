@@ -2,8 +2,8 @@
 namespace WUC\Entity;
 
 class courseModule {
-    public $moduleID;
-    public $courseID;
+    public $module_id;
+    public $course_id;
 
     public function __construct() {
 

@@ -58,11 +58,30 @@ color: #ffffff;
 
 
 /* Only style the top-level menu as flex */
+
+#Menu {
+    display: inline;
+    list-style-type: none
+}
+
+#Menu > li {
+    list-style: none;
+    margin-top: 10px;
+    padding: 5px;
+}
+
 #Menu > ul {
     list-style: none;
-    margin-top: 30px;
-    padding: 5;
-    display: flex;
+    margin-top: 25px;
+    padding: 5px;
+}
+
+
+#searchDiv {
+
+padding: 30px
+
+
 }
 
 /* Top-level menu items */
@@ -263,4 +282,14 @@ height: 400px;
     background-color: #8A038C;
     padding: 15px;
     border-radius: 9px;
+}
+
+
+#searchBar {
+  padding: 30px;
+  margin: 10px;
+  width: 250px;
+  border: 2px solid #6D5C7C;
+  border-radius: 5px;
+  background-color: white;
 }

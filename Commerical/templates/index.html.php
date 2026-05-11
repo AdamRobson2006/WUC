@@ -1,5 +1,5 @@
 <?php
-require "../includes/Website-Mockup-HEADER.html";
+require "../templates/Website-Mockup-HEADER.html";
 ?>
 
 
@@ -21,8 +21,20 @@ require "../includes/Website-Mockup-HEADER.html";
 </p>
 </div>
 
+<div class="MainContent">
+    <img src="https://picsum.photos/536/364" alt="">
+    <h1 class="MainContentH">Find a course here:</h1>
+
+    <form action="/index.php/search">
+        <input type='text' name='searchBar' id='searchBar'>
+        <input type='submit' name='beginSearch' hidden />
+        <input type='hidden' name='pageCounter' value=1>
+    </form>
+
+</div>
+
 
 <!--To follow what I had proposed in the wireframe, I want to add an image carousel here -->
 <?php
-require "../includes/Website-Mockup-FOOTER.html";
+require "../templates/Website-Mockup-FOOTER.html";
 ?>

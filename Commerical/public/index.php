@@ -46,7 +46,7 @@ $studentsTable = new \WUC\databaseTable($pdo, 'student', 'student_id', '\WUC\Ent
 $ticketsTable = new \WUC\databaseTable($pdo, 'tickets', 'ticket_id', '\WUC\Entity\ticket', []);
 $timetable = new \WUC\databaseTable($pdo, 'timetable', 'timetable_id', '\WUC\Entity\timetableSlot', []);
 
-$controller = new \WUC\controllerRMS($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $departmentsTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable);
+$controller = new \WUC\controllerCommercial($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $departmentsTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable);
 
 
 
@@ -60,12 +60,17 @@ if (str_starts_with($uri, 'index.php/')) {
 }
 
 if ($uri && method_exists($controller, $uri)) {
-    $page = $controller->$uri();
-} else {
-    $page = $controller->home();
-}
 
-echo $page;
+    $page = $controller->$uri();
+
+    if ($page !== null) {
+        echo $page;
+    }
+
+}
+else {
+    echo $controller->home();
+}
 
 
 

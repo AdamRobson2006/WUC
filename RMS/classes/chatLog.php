@@ -2,8 +2,8 @@
 namespace WUC\Entity;
 
 class chatLog {
-    public $messageID; 
-    public $personID;
+    public $message_id; 
+    public $person_id;
 
     public function __construct() {
 

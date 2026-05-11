@@ -2,8 +2,8 @@
 namespace WUC\Entity;
 
 class department {
-    public $departmentID;
-    public $departmentName;
+    public $department_id;
+    public $department_name;
 
     public function __construct() {
 
