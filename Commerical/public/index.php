@@ -60,12 +60,17 @@ if (str_starts_with($uri, 'index.php/')) {
 }
 
 if ($uri && method_exists($controller, $uri)) {
-    $page = $controller->$uri();
-} else {
-    $page = $controller->home();
-}
 
-echo $page;
+    $page = $controller->$uri();
+
+    if ($page !== null) {
+        echo $page;
+    }
+
+}
+else {
+    echo $controller->home();
+}
 
 
 

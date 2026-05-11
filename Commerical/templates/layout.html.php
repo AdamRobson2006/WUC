@@ -6,7 +6,7 @@
     <title><?= $title?></title>
 
     <!-- Global CSS -->
-    <link rel="stylesheet" href="/style/Commercial-Mockup.css">
+    <link rel="stylesheet" href="/style/Website-Mockup.css">
 
 
 </head>

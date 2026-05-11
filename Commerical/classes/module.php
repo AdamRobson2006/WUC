@@ -2,9 +2,9 @@
 namespace WUC\Entity;
 
 class module {
-    public $moduleID;
+    public $module_id;
     public $module_description;
-    public $roadMap;
+    public $award_map;
 
     public function __construct() {
 

@@ -47,29 +47,88 @@ class controllerCommercial {
 
     public function home() {
 
-    $output = loadTemplate(__DIR__ . '/../templates/index.html.php', []);
+        $output = loadTemplate(__DIR__ . '/../templates/index.html.php', []);
 
-    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['output' => $output]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Home', 'output' => $output]);
 
     }
 
-    public function courseSearch() {
+    public function search() {
         
-    $courses = [];
+        $courseName = $_GET['searchBar'];
 
-    if (!empty($_GET['search'])) {
+        $courseNameText = "<h1>$courseName</h1>";
 
-        $search = $_GET['search'];
+        $currentCourses = $this->coursesTable->find("course_title", $courseName);
 
-        $courses = $this->coursesTable->search($search);
+        $coursesArray = [];
+
+        foreach ($currentCourses as $course) {
+
+            $courseID = $course->course_id;
+
+            $currentCourseModules = $this->courseModulesLinkTable->find('course_id', $courseID);
+
+            $courseModulesArray = [];
+
+            $modulesArray = [];
+
+
+            foreach ($currentCourseModules as $courseModule) {
+
+                $moduleID = $courseModule->module_id;
+
+                $currentModules = $this->modulesTable->find('module_id', $moduleID);
+
+                foreach ($currentModules as $module) {
+
+                    array_push($modulesArray, loadTemplate(__DIR__ . '/../templates/module.html.php', ['moduleName' => $module->module_description]));
+ 
+                }
+
+            }
+
+            $moduleOutput = implode(" ", $modulesArray);
+
+            
+            array_push($coursesArray, loadTemplate(__DIR__ . '/../templates/course.html.php', ['courseID' => $course->course_id, 'courseTitle' => $course->course_title, 'courseDescription' => $course->course_description, 'departmentID' => $course->department_id, 'moduleOutput' => $moduleOutput]) );
+
+
+        }
+
+        $courseOutput = implode(" ", $coursesArray);
+        
+        $output = loadTemplate(__DIR__ . '/../templates/search.html.php', ['title' => 'Home', 'output' => $courseOutput]);
+
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Home', 'output' => $output]);
+
     }
 
-    echo loadTemplate(
-        '../templates/courseSearch.html.php',
-        ['courses' => $courses]
-    );
+
+
+
+
+public function downloadAwardMap() {
+
+    $course = $this->coursesTable->find('course_id', $_GET['course_id'])[0];
+
+    $data = $course->award_map;
+
+    while (ob_get_level()) {
+        ob_end_clean();
     }
+
+    header("Content-Type: image/png");
+    header("Content-Disposition: attachment; filename=\"image-test.png\"");
+    header("Content-Length: " . strlen($data));
+
+    echo $data;
+    exit;
 }
+
+
+
+
 
 /*
 
@@ -92,3 +151,5 @@ class controllerCommercial {
 
     
 */
+
+}
