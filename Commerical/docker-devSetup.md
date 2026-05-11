@@ -16,7 +16,9 @@ Run this command through the terminal; this will set up the php-apache link
 that will allow the localhost to recognise the webpage, rather than printing
 the contents of the PHP file as plaintext
 
-docker run --rm -d -p 8080:80 -v "${PWD}/public:/var/www/html" php:8.2-apache
+docker build -t commercial-php .
+
+docker run --rm -d -p 8080:80 -v "${PWD}/public:/var/www/html" -v "${PWD}/functions:/var/www/functions" -v "${PWD}/classes:/var/www/classes" -v "${PWD}/controllers:/var/www/controllers" -v "${PWD}/templates:/var/www/templates" commercial-php
 
 # 3. Go to localhost in your browser of choice
 

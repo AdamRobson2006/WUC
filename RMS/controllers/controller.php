@@ -8,6 +8,7 @@ class controllerRMS {
     private $chatlogsTable;
     private $courseModulesLinkTable;
     private $coursesTable;
+    private $departmentsTable;
     private $emergencyContactsTable;
     private $moduleAssignmentsTable;
     private $modulesTable;
@@ -23,13 +24,14 @@ class controllerRMS {
 
     // Main Constructor
 
-    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $coursesModulesLinkTable, $coursesTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable, $pdo = null) {
+    public function __construct($assignmentsTable, $attendanceTable, $chatlogsTable, $courseModulesLinkTable, $coursesTable, $departmentsTable, $emergencyContactsTable, $moduleAssignmentsTable, $modulesTable, $personalTutorialsTable, $recordStatusesTable, $staffTable, $studentAssignmentsTable, $studentsTable, $ticketsTable, $timetable, $pdo = null) {
 
         $this->assignmentsTable = $assignmentsTable;
         $this->attendanceTable = $attendanceTable;
         $this->chatlogsTable = $chatlogsTable;
         $this->courseModulesLinkTable = $courseModulesLinkTable;
         $this->coursesTable = $coursesTable;
+        $this->departmentsTable = $departmentsTable;
         $this->emergencyContactsTable = $emergencyContactsTable;
         $this->moduleAssignmentsTable = $moduleAssignmentsTable;
         $this->modulesTable = $modulesTable;
@@ -105,11 +107,13 @@ class controllerRMS {
         return false;
     }
 
-    public function test() {
-
-    echo loadTemplate('../templates/index.html.php', []);
+    public function home() {
 
 
+    $output = loadTemplate(__DIR__ . '/../templates/RMS-Mockup-Home.html.php', []);
+
+    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Home', 'output' => $output]);    
+  
     }
 
 }

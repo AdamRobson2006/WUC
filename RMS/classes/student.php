@@ -3,20 +3,20 @@ namespace WUC\Entity;
 
 class student {
 
-    public $studentID;
-    public $firstName;
-    public $middleName;
-    public $surName;
-    public $yearOfStudy;
-    public $currentAddress;
-    public $homeAddress;
-    public $phoneNumber;
+    public $student_id;
+    public $first_name;
+    public $middle_name;
+    public $surname;
+    public $year_of_study;
+    public $current_address;
+    public $home_address;
+    public $phone_number;
     public $email;
-    public $offerLetter;
-    public $degreeClassification;
-    public $emergencyContact;
-    public $recordStatus;
-    public $courseID;
+    public $offer_letter;
+    public $degree_classification;
+    public $emergency_contact;
+    public $record_status;
+    public $course_id;
 
     private static $attributeMap = [
         'student_id' => 'studentID',

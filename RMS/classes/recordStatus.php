@@ -3,9 +3,9 @@ namespace WUC\Entity;
 
 class recordStatus {
 
-    public $statusID;
+    public $status_id;
     public $status;
-    public $dateAdded;
+    public $date_added;
 
     private static $attributeMap = [
         'status_id' => 'statusID',
