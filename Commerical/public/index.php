@@ -2,7 +2,6 @@
 
 session_start();
 
-
 require_once __DIR__ . '/../functions/connectToDB.php';
 require_once __DIR__ . '/../functions/loadTemplate.php';
 require_once __DIR__ . '/../classes/databaseTable.php';
@@ -23,8 +22,6 @@ require_once __DIR__ . '/../classes/studentAssignment.php';
 require_once __DIR__ . '/../classes/student.php';
 require_once __DIR__ . '/../classes/ticket.php';
 require_once __DIR__ . '/../classes/timetableSlot.php';
-
-
 
 $pdo = new PDO('mysql:host=host.docker.internal;dbname=wuc-schema;charset=utf8', 'root', 'root');
 

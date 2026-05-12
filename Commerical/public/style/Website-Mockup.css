@@ -60,7 +60,9 @@ color: #ffffff;
 /* Only style the top-level menu as flex */
 
 #Menu {
-    display: inline;
+    gap: 65px;
+    display: flex;
+    flex-direction: row;
     list-style-type: none
 }
 
@@ -76,12 +78,8 @@ color: #ffffff;
     padding: 5px;
 }
 
-
 #searchDiv {
-
 padding: 30px
-
-
 }
 
 /* Top-level menu items */
@@ -397,3 +395,4 @@ text-align: center;
 #subjectBox {
     padding: 1rem 2rem 3rem;
 }
+
