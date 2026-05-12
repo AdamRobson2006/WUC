@@ -9,12 +9,13 @@
     </form>
 </div>
 <hr id="gap">
+
 <div class="MainContent">
-    <?php echo $output ?>
-    <?php if (empty($output)): ?>
-        <p>No courses found matching "<?php echo htmlspecialchars($searchTerm ?? ''); ?>"</p>
-    <?php endif; ?>
+<?php if (empty($departments) && !empty($searchTerm)): ?>
+    <p>No courses found matching "<?php echo htmlspecialchars($searchTerm ?? ''); ?>"</p>
+<?php endif; ?>
 </div>
+
 
 <!--Filter Options-->
 <div></div>
@@ -22,7 +23,6 @@
 <?php foreach ($departments as $department): ?>
 <div id="subjectBox">
     <h1><?php echo htmlspecialchars($department['name']); ?></h1>
-    <p><?php echo htmlspecialchars($department['description']); ?></p>
     <hr id="gap">
     <section class="Courses">
 

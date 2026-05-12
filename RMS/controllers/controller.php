@@ -174,7 +174,74 @@ public function send() {
 
 }
 
+public function studentRecords() {
 
+    /*
+    $searchTerm = $_GET['searchBar'] ?? null;
+    if ($searchTerm) {
+        $currentCourses = $this->coursesTable->find("course_title", $searchTerm);
+    } else {
+        $currentCourses = $this->coursesTable->findAll();
+    }
+    */
+
+    $departments = [];
+
+    foreach ($currentCourses as $course) {
+        $courseID = $course->course_id;
+        $departmentID = $course->department_id;
+
+        // Fetch modules for this course
+        $currentCourseModules = $this->courseModulesLinkTable->find('course_id', $courseID);
+        $modulesArray = [];
+        foreach ($currentCourseModules as $courseModule) {
+            $moduleID = $courseModule->module_id;
+            $currentModules = $this->modulesTable->find('module_id', $moduleID);
+            foreach ($currentModules as $module) {
+                $modulesArray[] = $module->module_description;
+            }
+        }
+
+        // Fetch department info if not already loaded
+        if (!isset($departments[$departmentID])) {
+            $departmentData = $this->departmentsTable->find('department_id', $departmentID);
+            foreach ($departmentData as $dept) {
+                $departments[$departmentID] = [
+                    'name'        => $dept->department_name,
+                    'description' => $dept->department_description,
+                    'courses'     => []
+                ];
+            }
+        }
+
+        // Add course under its department
+        $departments[$departmentID]['courses'][] = [
+            'id'          => $course->course_id,
+            'name'        => $course->course_title,
+            'description' => $course->course_description,
+            'modules'     => $modulesArray,
+            'url'         => '/index.php/subjects/' . $course->course_id
+        ];
+    }
+
+    $output = loadTemplate(__DIR__ . '/../templates/allCourses.html.php', [
+        'title'       => 'Subjects',
+        'searchTerm'  => $searchTerm,
+        'departments' => $departments
+    ]);
+
+    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', [
+        'title'  => 'Subjects',
+        'output' => $output
+    ]);
+
+
+
+
+
+
+
+}
 
 }
 

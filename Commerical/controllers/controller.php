@@ -137,7 +137,6 @@ public function subjects() {
         $courseID = $course->course_id;
         $departmentID = $course->department_id;
 
-        // Fetch modules for this course
         $currentCourseModules = $this->courseModulesLinkTable->find('course_id', $courseID);
         $modulesArray = [];
         foreach ($currentCourseModules as $courseModule) {
@@ -148,19 +147,16 @@ public function subjects() {
             }
         }
 
-        // Fetch department info if not already loaded
         if (!isset($departments[$departmentID])) {
             $departmentData = $this->departmentsTable->find('department_id', $departmentID);
             foreach ($departmentData as $dept) {
                 $departments[$departmentID] = [
                     'name'        => $dept->department_name,
-                    'description' => $dept->department_description,
                     'courses'     => []
                 ];
             }
         }
 
-        // Add course under its department
         $departments[$departmentID]['courses'][] = [
             'id'          => $course->course_id,
             'name'        => $course->course_title,

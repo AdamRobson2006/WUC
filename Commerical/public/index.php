@@ -13,6 +13,7 @@ require_once __DIR__ . '/../classes/attendanceLog.php';
 require_once __DIR__ . '/../classes/chatLog.php';
 require_once __DIR__ . '/../classes/courseModule.php';
 require_once __DIR__ . '/../classes/course.php';
+require_once __DIR__ . '/../classes/department.php';
 require_once __DIR__ . '/../classes/emergencyContact.php';
 require_once __DIR__ . '/../classes/moduleAssignment.php';
 require_once __DIR__ . '/../classes/module.php';
