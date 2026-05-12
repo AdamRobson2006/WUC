@@ -120,7 +120,65 @@ class controllerRMS {
         echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Staff Chat', 'output' => $output]);
     }
 
+public function chat() {
+
+    $tempSessionID = (int) "00003226";
+
+    $chatLogs = $this->chatlogsTable->findAll();
+
+    $messagesArray = [];
+
+    foreach ($chatLogs as $log) {
+
+        $isMine = ($log->staff_id === $tempSessionID);
+
+        $wrapperClass = $isMine ? 'mine' : 'theirs';
+        $bubbleClass  = $isMine ? 'bubbleMine' : 'bubbleTheirs';
+
+        array_push($messagesArray, loadTemplate(
+            __DIR__ . '/../templates/chatlog.html.php',
+            [
+                'wrapperClass' => $wrapperClass,
+                'bubbleClass'  => $bubbleClass,
+                'message'      => htmlspecialchars($log->message),
+            ]
+        ));
+    }
+
+    $messagesOutput = implode(" ", $messagesArray);
+
+    $output = loadTemplate(__DIR__ . '/../templates/RMS-Mockup-Chatlog.html.php', ['messagesOutput' => $messagesOutput, 'tempSessionID' => $tempSessionID]);
+
+    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Staff Chat', 'output' => $output]);
+
+    }
+
+
+    
+
+public function send() {
+
+    $message = $_POST['message'] ?? '';
+    $tempSessionID = $_POST['tempSessionID'] ?? 0;
+
+    if (!empty($message)) {
+        $this->chatlogsTable->insertRecord([
+            'message' => $message,
+            'staff_id' => (int) $tempSessionID
+        ]);
+    }
+
+
+    header('Location: /index.php/chat');
+    exit;
+
 }
+
+
+
+}
+
+
 
 /*
 

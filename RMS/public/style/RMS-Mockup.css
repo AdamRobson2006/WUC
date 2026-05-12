@@ -326,3 +326,117 @@ font-style: italic;
   background-color: #6D5C7C;
   box-shadow: 0 4px 5px rgba(0,0,0,0.20);
 }
+
+#chatWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    margin: 2% 5%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #80748c2a;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+}
+
+#chatFeed {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+}
+
+.chatBubbleWrap {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+}
+
+.mine   { align-self: flex-end;   align-items: flex-end; }
+.theirs { align-self: flex-start; align-items: flex-start; }
+
+.senderName {
+    font-size: 12px;
+    color: #6D5C7C;
+    font-weight: 600;
+    margin-bottom: 3px;
+    padding-left: 4px;
+    text-align: left;
+}
+
+.chatBubble {
+    padding: 10px 15px;
+    border-radius: 16px;
+    max-width: 100%;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.bubbleMine {
+    background-color: #8A038C;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.bubbleTheirs {
+    background-color: #F2BBC9;
+    color: #2b2b2b;
+    border-bottom-left-radius: 4px;
+}
+
+.messageText {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.messageTime {
+    font-size: 10px;
+    opacity: 0.7;
+    text-align: right;
+}
+
+#chatInputBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background-color: #6D5C7C;
+    border-top: 2px solid #8A038C;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 25px;
+    border: none;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f0f7;
+    color: #2b2b2b;
+    outline: none;
+}
+
+#chatInput:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #F2BBC9;
+}
+
+#sendBtn {
+    width: auto;
+    height: auto;
+    padding: 10px 22px;
+    background-color: #8A038C;
+    color: white;
+    border-radius: 25px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#sendBtn:hover {
+    background-color: #F2BBC9;
+    color: #2b2b2b;
+}
