@@ -1,5 +1,4 @@
 <div class="page-subjects">
-
   <div class="subjects-hero">
     <h1>Study at Woodlands University College</h1>
     <p>Discover your subject area and find the course that's right for you</p>
