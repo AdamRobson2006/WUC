@@ -1,6 +1,6 @@
 <?php
 // Dummy chatLog objects for testing
-// Adam will swap these for real DB records when the database is connected
+
 
 class chatLogDummy {
     public $message_id;
