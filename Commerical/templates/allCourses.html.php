@@ -1,3 +1,4 @@
+<div class="subjectSearch">
 <h1>Study at Woodlands University College - Check out our Subject Areas</h1>
 <div class="searchBox">
     <form action="/index.php/subjects" method="get">
@@ -8,6 +9,9 @@
         <?php endif; ?>
     </form>
 </div>
+</div>
+
+
 <hr id="gap">
 
 <div class="MainContent">
