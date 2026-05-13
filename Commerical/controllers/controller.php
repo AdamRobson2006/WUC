@@ -93,6 +93,14 @@ class controllerCommercial {
 
     }
 
+    public function study() {
+
+        $output = loadTemplate(__DIR__ . '/../templates/index.html.php', []);
+
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Study', 'output' => $output]);
+
+    }
+
     public function search() {
         
         $courseName = $_GET['searchBar'];
@@ -221,9 +229,16 @@ public function subjects() {
     }
 
     $courseOutput = implode(" ", $coursesArray);
-
-    $allCourses = $currentCourses;
-
+    
+    // Get all departments
+    $departments = $this->departmentsTable->findAll();
+    
+    if ($searchTerm) {
+        $allCourses = $currentCourses;  // Search results only
+    } else {
+        $allCourses = $currentCourses;  // All courses
+    }
+    
     $output = loadTemplate(__DIR__ . '/../templates/allCourses.html.php', [
         'output' => $courseOutput,
         'searchTerm'    => $searchTerm,
@@ -235,70 +250,135 @@ public function subjects() {
     echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Subjects', 'output' => $output]);
 }
 
-    public function study() {
-        $output = loadTemplate(__DIR__ . '/../templates/study/Website-Study.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Study', 'output' => $output]);
-    }
+//ADDING ALL OF THE NAVIGATION ROUTES - DO NOT TOUCH!!
 
-    public function atWoodlands() {
-        $output = loadTemplate(__DIR__ . '/../templates/life/Website-AtWoodlands.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => "At Woodland's", 'output' => $output]);
-    }
+public function accommodation() {
+    ob_start();
+    require __DIR__ . '/../templates/life/Website-Accomodation.html.php';
+    $output = ob_get_clean();
+    
+    $title = 'Accommodation - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function studentLife() {
-        $output = loadTemplate(__DIR__ . '/../templates/life/Website-Student Life.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Student Life', 'output' => $output]);
-    }
+public function atWoodlands() {
+    ob_start();
+    require __DIR__ . '/../templates/life/Website-AtWoodlands.html.php';
+    $output = ob_get_clean();
+    
+    $title = 'Life At Woodlands - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function accommodation() {
-        $output = loadTemplate(__DIR__ . '/../templates/life/Website-Accomodation.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Accommodation', 'output' => $output]);
-    }
+public function openDays() {
+    ob_start();
+    require __DIR__ . '/../templates/life/Website-OpenDays.html.php';
+    $output = ob_get_clean();
+    
+    $title = 'Open Days - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function support() {
-        $output = loadTemplate(__DIR__ . '/../templates/life/Website-Support.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Support', 'output' => $output]);
-    }
+public function studentLife() {
+    ob_start();
+    require __DIR__ . '/../templates/life/Website-Student Life.html.php';
+    $output = ob_get_clean();
+    
+    $title = 'Student Life - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function studentUnion() {
-        $output = loadTemplate(__DIR__ . '/../templates/life/Website-StudentUnion.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Student Union', 'output' => $output]);
-    }
+public function StudentUnion() {
+    ob_start();
+    require __DIR__ . '/../templates/life/Website-StudentUnion.html.php';
+    $output = ob_get_clean();
+    
+    $title = 'Student Union - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
+public function Support() {
+    ob_start();
+    require __DIR__ . '/../templates/life/Website-Support.html.php';
+    $output = ob_get_clean();
+    
+    $title = 'Support - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
+//Study
 
-    public function openDays() {
-        $output = loadTemplate(__DIR__ . '/../templates/life/Website-OpenDays.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Open Days', 'output' => $output]);
-    }
+public function Course() {
+    ob_start();
+    require __DIR__ . '/../templates/study/Website-Course.html.php';
+    $output = ob_get_clean();
+    
+    //Change the title so that it uses the course name
+    $title = 'Courses at WCU- Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function aboutWoodlands() {
-        $output = loadTemplate(__DIR__ . '/../templates/about/Website-AboutWoodlands.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => "About Woodland's", 'output' => $output]);
-    }
+//Contact
 
-    public function news() {
-        $output = loadTemplate(__DIR__ . '/../templates/about/Website-News.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'News', 'output' => $output]);
-    }
+public function Contact() {
+    ob_start();
+    require __DIR__ . '/../templates/contact/Website-Contact.html.php';
+    $output = ob_get_clean();
+    
+    //Change the title so that it uses the course name
+    $title = 'Contact us - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function awards() {
-        $output = loadTemplate(__DIR__ . '/../templates/about/Website-Awards.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Awards', 'output' => $output]);
-    }
+// About
 
-    public function services() {
-        $output = loadTemplate(__DIR__ . '/../templates/about/Website-Services.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Services', 'output' => $output]);
-    }
+public function AboutWoodlands() {
+    ob_start();
+    require __DIR__ . '/../templates/about/Website-AboutWoodlands.html.php';
+    $output = ob_get_clean();
+    
+    //Change the title so that it uses the course name
+    $title = 'About Woodlands - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function research() {
-        $output = loadTemplate(__DIR__ . '/../templates/about/Website-Research.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Research', 'output' => $output]);
-    }
+public function Awards() {
+    ob_start();
+    require __DIR__ . '/../templates/about/Website-Awards.html.php';
+    $output = ob_get_clean();
+    
+    //Change the title so that it uses the course name
+    $title = 'Awards - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
-    public function contact() {
-        $output = loadTemplate(__DIR__ . '/../templates/contact/Website-Contact.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Contact', 'output' => $output]);
-    }
+public function News() {
+    ob_start();
+    require __DIR__ . '/../templates/about/Website-News.html.php';
+    $output = ob_get_clean();
+    
+    //Change the title so that it uses the course name
+    $title = 'News - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
+
+public function Research() {
+    ob_start();
+    require __DIR__ . '/../templates/about/Website-Research.html.php';
+    $output = ob_get_clean();
+    
+    //Change the title so that it uses the course name
+    $title = 'Research - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
+
+public function Services() {
+    ob_start();
+    require __DIR__ . '/../templates/about/Website-Services.html.php';
+    $output = ob_get_clean();
+    
+    //Change the title so that it uses the course name
+    $title = 'Services - Woodlands University College';
+    require __DIR__ . '/../templates/layout.html.php';
+}
 
 /*
 

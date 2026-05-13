@@ -465,9 +465,9 @@ input#searchBar {
 }
 
 .scroll-track {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    display: flex ;
+    flex-direction: row ;
+    flex-wrap: nowrap ;
     gap: 14px;
     overflow-x: auto;
     padding-bottom: 10px;
@@ -482,15 +482,15 @@ input#searchBar {
 .scroll-track::-webkit-scrollbar-thumb { background: #b39cc4; border-radius: 99px; }
 
 .course-card {
-    flex: 0 0 200px !important;
-    min-width: 200px !important;
+    flex: 0 0 200px ;
+    min-width: 200px ;
     scroll-snap-align: start;
     background: #fff;
     border: 1px solid #e8dff0;
     border-radius: 12px;
     overflow: hidden;
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex ;
+    flex-direction: column ;
     color: inherit;
     text-decoration: none;
     transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;

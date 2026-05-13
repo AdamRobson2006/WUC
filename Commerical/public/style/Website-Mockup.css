@@ -65,34 +65,17 @@ color: #ffffff;
 /* Only style the top-level menu as flex */
 
 #Menu {
-    gap: 65px;
     display: flex;
     flex-direction: row;
     list-style-type: none
 }
 
-#Menu > li {
-    list-style: none;
-    margin-top: 10px;
-    padding: 5px;
-}
-
 #Menu > ul {
     list-style: none;
-    margin-top: 25px;
-    padding: 5px;
-}
-
-#searchDiv {
-padding: 30px
-}
-
-/* Top-level menu items */
-#Menu > ul > li {
-    position: relative; /* for dropdown positioning */
-    padding: 15px 20px;
-    color: white;
-    cursor: pointer;
+    margin: 0;
+    padding: 50px;
+    display: flex;
+    gap: 100px;
 }
 
 .dropdown {
@@ -103,12 +86,9 @@ padding: 30px
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 160px;
-    z-index: 9999;
     background-color: #80748C;
     flex-direction: column;
+    z-index: 9999;
 }
 
 .dropdown-content li {
@@ -408,4 +388,5 @@ text-align: center;
 #subjectBox {
     padding: 1rem 2rem 3rem;
 }
+
 
