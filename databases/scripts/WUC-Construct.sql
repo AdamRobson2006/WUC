@@ -82,6 +82,10 @@ USE `wuc-schema`;
     course_description VARCHAR(255) NOT NULL,
 	department_id INT(4) NOT NULL,
     award_map LONGBLOB NULL,
+    duration VARCHAR(20) NULL,
+    study_mode VARCHAR(30) NULL,
+    entry_requirements VARCHAR(50) NULL,
+    award_type VARCHAR(20) NULL,
     PRIMARY KEY (course_id)
     )ENGINE=INNODB;
     

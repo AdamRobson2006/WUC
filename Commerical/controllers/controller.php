@@ -163,54 +163,73 @@ public function downloadAwardMap() {
 }
 
 public function subjects() {
-        
+
     $searchTerm = $_GET['searchBar'] ?? null;
 
     if ($searchTerm) {
-        $currentCourses = $this->coursesTable->find("course_title", $searchTerm);
+        $currentCourses = $this->coursesTable->findLike("course_title", $searchTerm);
     } else {
         $currentCourses = $this->coursesTable->findAll();
     }
 
-    $coursesArray = [];
+    $departments = $this->departmentsTable->findAll();
+
+    $deptNameMap = [];
+    foreach ($departments as $dept) {
+        $deptNameMap[(int)$dept->department_id] = $dept->department_name;
+    }
+
+    $coursesArray  = [];
+    $courseDataMap = [];
 
     foreach ($currentCourses as $course) {
         $courseID = $course->course_id;
         $currentCourseModules = $this->courseModulesLinkTable->find('course_id', $courseID);
         $modulesArray = [];
+        $moduleNames  = [];
 
         foreach ($currentCourseModules as $courseModule) {
             $moduleID = $courseModule->module_id;
             $currentModules = $this->modulesTable->find('module_id', $moduleID);
             foreach ($currentModules as $module) {
+                $moduleNames[] = $module->module_description;
                 array_push($modulesArray, loadTemplate(__DIR__ . '/../templates/module.html.php', ['moduleName' => $module->module_description]));
             }
         }
 
         $moduleOutput = implode(" ", $modulesArray);
-        
+
+        $courseDataMap[$courseID] = [
+            'title'              => $course->course_title,
+            'description'        => $course->course_description,
+            'department'         => $deptNameMap[(int)$course->department_id] ?? '',
+            'modules'            => $moduleNames,
+            'course_id'          => $courseID,
+            'award_type'         => $course->award_type ?? '',
+            'duration'           => $course->duration ?? '',
+            'study_mode'         => $course->study_mode ?? '',
+            'entry_requirements' => $course->entry_requirements ?? '',
+        ];
+
         array_push($coursesArray, loadTemplate(__DIR__ . '/../templates/course.html.php', [
-            'courseID' => $course->course_id, 
-            'courseTitle' => $course->course_title, 
-            'courseDescription' => $course->course_description, 
-            'departmentID' => $course->department_id, 
+            'courseID' => $course->course_id,
+            'courseTitle' => $course->course_title,
+            'courseDescription' => $course->course_description,
+            'departmentID' => $course->department_id,
             'moduleOutput' => $moduleOutput
         ]));
     }
 
     $courseOutput = implode(" ", $coursesArray);
-    
-    // Get all departments
-    $departments = $this->departmentsTable->findAll();
-    
-    // Reuse $currentCourses instead of querying again
+
     $allCourses = $currentCourses;
-    
+
     $output = loadTemplate(__DIR__ . '/../templates/allCourses.html.php', [
         'output' => $courseOutput,
-        'searchTerm' => $searchTerm,
-        'departments' => $departments,
-        'allCourses' => $allCourses
+        'searchTerm'    => $searchTerm,
+        'departments'   => $departments,
+        'allCourses'    => $allCourses,
+        'courseDataMap' => $courseDataMap,
     ]);
 
     echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Subjects', 'output' => $output]);

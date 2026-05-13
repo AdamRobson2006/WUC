@@ -62,6 +62,13 @@ public function find($field, $value) {
 
 }
 
+public function findLike($field, $value) {
+    $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE ' . $field . ' LIKE :value');
+    $stmt->setFetchMode(\PDO::FETCH_CLASS, $this->entityClass, $this->entityConstructor);
+    $stmt->execute(['value' => '%' . $value . '%']);
+    return $stmt->fetchAll();
+}
+
 public function findAll() {
 
 $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->table);
