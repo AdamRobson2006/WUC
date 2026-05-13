@@ -16,7 +16,7 @@ class staffMember {
     public $record_status;
     public $specialism;
     public $emergency_contact;
-
+    public $password_hash;
 
     public function __construct() {
 

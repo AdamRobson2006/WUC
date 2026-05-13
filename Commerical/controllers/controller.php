@@ -45,6 +45,46 @@ class controllerCommercial {
 
     }
 
+    public function login() {
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /index.php/home');
+            exit;
+        }
+
+        $error = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $login_type = $_POST['login_type'] ?? 'student';
+            $email      = trim($_POST['email'] ?? '');
+            $password   = $_POST['password'] ?? '';
+
+            if ($login_type === 'student') {
+                $results = $this->studentsTable->find('email', $email);
+                if (!empty($results)) {
+                    $user = $results[0];
+                    if ($user->password_hash && password_verify($password, $user->password_hash)) {
+                        session_regenerate_id(true);
+                        $_SESSION['user_id']   = $user->student_id;
+                        $_SESSION['user_name'] = $user->first_name . ' ' . $user->surname;
+                        $_SESSION['user_type'] = 'student';
+                        header('Location: /index.php/home');
+                        exit;
+                    }
+                }
+                $error = 'Invalid email or password.';
+            }
+        }
+
+        $output = loadTemplate(__DIR__ . '/../templates/login.html.php', ['error' => $error]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Login', 'output' => $output]);
+    }
+
+    public function logout() {
+        session_destroy();
+        header('Location: /index.php/home');
+        exit;
+    }
+
     public function home() {
 
         $output = loadTemplate(__DIR__ . '/../templates/index.html.php', []);

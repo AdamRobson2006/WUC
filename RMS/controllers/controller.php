@@ -245,13 +245,229 @@ class controllerRMS {
         echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Closed Tickets', 'output' => $output]);
     }
 
-    public function home() {
+    public function login() {
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /index.php/home');
+            exit;
+        }
 
+        $error = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email    = trim($_POST['email'] ?? '');
+            $password = $_POST['password'] ?? '';
+
+            $results = $this->staffTable->find('email', $email);
+            if (!empty($results)) {
+                $user = $results[0];
+                if ($user->password_hash && password_verify($password, $user->password_hash)) {
+                    session_regenerate_id(true);
+                    $_SESSION['user_id']   = $user->staff_id;
+                    $_SESSION['user_name'] = $user->first_name . ' ' . $user->surname;
+                    $_SESSION['user_role'] = $user->role;
+                    header('Location: /index.php/home');
+                    exit;
+                }
+            }
+            $error = 'Invalid email or password.';
+        }
+
+        $output = loadTemplate(__DIR__ . '/../templates/login.html.php', ['error' => $error]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Login', 'output' => $output]);
+    }
+
+    public function logout() {
+        session_destroy();
+        header('Location: /index.php/login');
+        exit;
+    }
+
+    public function manageUsers() {
+        if (($_SESSION['user_role'] ?? '') !== 'AD') {
+            header('Location: /index.php/home');
+            exit;
+        }
+
+        $students = $this->studentsTable->findAll();
+        $staff    = $this->staffTable->findAll();
+        $message  = $_GET['msg'] ?? null;
+
+        $output = loadTemplate(__DIR__ . '/../templates/manage-users.html.php', [
+            'students' => $students,
+            'staff'    => $staff,
+            'message'  => $message,
+        ]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Manage Users', 'output' => $output]);
+    }
+
+    public function createUser() {
+        if (($_SESSION['user_role'] ?? '') !== 'AD') {
+            header('Location: /index.php/home');
+            exit;
+        }
+
+        $message = null;
+        $courses  = $this->coursesTable->findAll();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $type     = $_POST['type'] ?? 'student';
+            $password = $_POST['password'] ?? '';
+
+            if (strlen($password) < 8) {
+                $message = 'Password must be at least 8 characters.';
+            } else {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+
+                $statusId = $this->recordStatusesTable->insertRecord([
+                    'status'     => 1,
+                    'date_added' => date('Y-m-d H:i:s'),
+                ]);
+
+                try {
+                    if ($type === 'student') {
+                        $this->studentsTable->insertRecord([
+                            'student_id'       => (int) $_POST['user_id'],
+                            'first_name'       => $_POST['first_name'],
+                            'middle_name'      => $_POST['middle_name'] ?: null,
+                            'surname'          => $_POST['surname'],
+                            'year_of_study'    => (int) ($_POST['year_of_study'] ?: 1),
+                            'current_address'  => $_POST['current_address'],
+                            'home_address'     => $_POST['home_address'] ?: null,
+                            'phone_number'     => $_POST['phone_number'],
+                            'email'            => $_POST['email'],
+                            'emergency_contact'=> 1226,
+                            'record_status'    => $statusId,
+                            'course_id'        => (int) $_POST['course_id'],
+                            'password_hash'    => $hash,
+                        ]);
+                    } else {
+                        $this->staffTable->insertRecord([
+                            'staff_id'          => (int) $_POST['user_id'],
+                            'first_name'        => $_POST['first_name'],
+                            'middle_name'       => $_POST['middle_name'] ?: null,
+                            'surname'           => $_POST['surname'],
+                            'current_address'   => $_POST['current_address'],
+                            'email'             => $_POST['email'],
+                            'phone_number'      => $_POST['phone_number'],
+                            'mod_leader'        => $_POST['mod_leader'] ?: null,
+                            'role'              => $_POST['role'],
+                            'specialism'        => $_POST['specialism'] ?: 'General',
+                            'emergency_contact' => 1226,
+                            'record_status'     => $statusId,
+                            'password_hash'     => $hash,
+                        ]);
+                    }
+                    $message = 'User created successfully.';
+                } catch (\Exception $e) {
+                    $message = 'Error creating user: ' . $e->getMessage();
+                }
+            }
+        }
+
+        $output = loadTemplate(__DIR__ . '/../templates/create-user.html.php', [
+            'message' => $message,
+            'courses' => $courses,
+        ]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Create User', 'output' => $output]);
+    }
+
+    public function editUser() {
+        if (($_SESSION['user_role'] ?? '') !== 'AD') {
+            header('Location: /index.php/home');
+            exit;
+        }
+
+        $type    = $_GET['type'] ?? $_POST['type'] ?? 'student';
+        $id      = (int) ($_GET['id'] ?? $_POST['id'] ?? 0);
+        $message = null;
+
+        if ($type === 'student') {
+            $results = $this->studentsTable->find('student_id', $id);
+        } else {
+            $results = $this->staffTable->find('staff_id', $id);
+        }
+        $user = $results[0] ?? null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user) {
+            if ($type === 'student') {
+                $this->studentsTable->updateRecordByCriteria(
+                    ['first_name', 'middle_name', 'surname', 'email', 'phone_number', 'current_address'],
+                    [$_POST['first_name'], $_POST['middle_name'], $_POST['surname'], $_POST['email'], $_POST['phone_number'], $_POST['current_address']],
+                    ['student_id'],
+                    [$id]
+                );
+            } else {
+                $this->staffTable->updateRecordByCriteria(
+                    ['first_name', 'middle_name', 'surname', 'email', 'phone_number', 'current_address', 'role', 'specialism'],
+                    [$_POST['first_name'], $_POST['middle_name'], $_POST['surname'], $_POST['email'], $_POST['phone_number'], $_POST['current_address'], $_POST['role'], $_POST['specialism']],
+                    ['staff_id'],
+                    [$id]
+                );
+            }
+
+            if (!empty($_POST['password']) && strlen($_POST['password']) >= 8) {
+                $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                if ($type === 'student') {
+                    $this->studentsTable->updateRecord('password_hash', $hash, 'student_id', $id);
+                } else {
+                    $this->staffTable->updateRecord('password_hash', $hash, 'staff_id', $id);
+                }
+            }
+
+            $message = 'User updated successfully.';
+
+            // Reload user after update
+            if ($type === 'student') {
+                $results = $this->studentsTable->find('student_id', $id);
+            } else {
+                $results = $this->staffTable->find('staff_id', $id);
+            }
+            $user = $results[0] ?? null;
+        }
+
+        $output = loadTemplate(__DIR__ . '/../templates/edit-user.html.php', [
+            'user'    => $user,
+            'type'    => $type,
+            'message' => $message,
+        ]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Edit User', 'output' => $output]);
+    }
+
+    public function deleteUser() {
+        if (($_SESSION['user_role'] ?? '') !== 'AD') {
+            header('Location: /index.php/home');
+            exit;
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $type = $_POST['type'] ?? '';
+            $id   = (int) ($_POST['id'] ?? 0);
+
+            try {
+                if ($type === 'student' && $id) {
+                    $this->studentsTable->deleteRecord('student_id', $id);
+                } elseif ($type === 'staff' && $id) {
+                    $this->staffTable->deleteRecord('staff_id', $id);
+                }
+                header('Location: /index.php/manageUsers?msg=User+deleted.');
+                exit;
+            } catch (\PDOException $e) {
+                $msg = urlencode('Cannot delete: this user is still referenced by other records (assignments, tickets, or chat logs). Remove those links first, or edit the user instead.');
+                header('Location: /index.php/manageUsers?error=' . $msg);
+                exit;
+            }
+        }
+
+        header('Location: /index.php/manageUsers');
+        exit;
+    }
+
+    public function home() {
 
     $output = loadTemplate(__DIR__ . '/../templates/RMS-Mockup-Home.html.php', []);
 
-    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Home', 'output' => $output]);    
-  
+    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Home', 'output' => $output]);
+
     }
     public function staffChat() {
         $output = loadTemplate(__DIR__ . '/../templates/options/RMS-Mockup-StaffChat.html.php', []);

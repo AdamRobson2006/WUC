@@ -60,13 +60,18 @@ if (str_starts_with($uri, 'index.php/')) {
     $uri = substr($uri, strlen('index.php/'));
 }
 
-if ($uri && method_exists($controller, $uri)) {
-    $page = $controller->$uri();
-} else {
-    $page = $controller->home();
+$publicRoutes = ['login', 'logout'];
+
+if (!isset($_SESSION['user_id']) && !in_array($uri, $publicRoutes)) {
+    header('Location: /index.php/login');
+    exit;
 }
 
-echo $page;
+if ($uri && method_exists($controller, $uri)) {
+    $controller->$uri();
+} else {
+    $controller->home();
+}
 
 
 
