@@ -107,6 +107,55 @@ class controllerRMS {
         return false;
     }
 
+    public function adminGrade() {
+        $message = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $studentID = $_POST['student_id'] ?? null;
+            $assignmentID = $_POST['assignment_id'] ?? null;
+
+            if ($studentID && $assignmentID) {
+                if ($this->approveGrade($studentID, $assignmentID)) {
+                    $message = 'Grade approved.';
+                } else {
+                    $message = 'Grade not approved or invalid input.';
+                }
+            } else {
+                $message = 'Student ID and assignment ID are required.';
+            }
+        }
+
+        $output = loadTemplate(__DIR__ . '/../templates/admin-grade.html.php', ['message' => $message]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Admin Grade Approval', 'output' => $output]);
+    }
+
+    public function adminEnrolment() {
+        $message = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $studentID = $_POST['student_id'] ?? null;
+            $decision = $_POST['decision'] ?? null;
+            $offerLetterBlob = null;
+
+            if (isset($_FILES['offer_letter']) && $_FILES['offer_letter']['error'] === UPLOAD_ERR_OK) {
+                $offerLetterBlob = file_get_contents($_FILES['offer_letter']['tmp_name']);
+            }
+
+            if ($studentID && $decision) {
+                if ($this->approveEnrolment($studentID, $decision, $offerLetterBlob)) {
+                    $message = 'Enrolment processed successfully.';
+                } else {
+                    $message = 'Failed to process enrolment.';
+                }
+            } else {
+                $message = 'Student ID and decision are required.';
+            }
+        }
+
+        $output = loadTemplate(__DIR__ . '/../templates/admin-enrolment.html.php', ['message' => $message]);
+        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Admin Enrolment Approval', 'output' => $output]);
+    }
+
     public function home() {
 
 
