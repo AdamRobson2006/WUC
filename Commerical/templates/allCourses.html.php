@@ -24,20 +24,24 @@
         <p class="no-results">No courses found matching "<?php echo htmlspecialchars($searchTerm); ?>"</p>
       <?php endif; ?>
     </div>
+
+
   <?php else: ?>
     <div class="subjects-body">
-      <?php foreach ($departments as $department): ?>
-        <?php
-          $deptCourses = array_filter((array)$allCourses, fn($c) =>
-            (int)$c->department_id === (int)$department->department_id
-          );
-        ?>
+      <?php foreach ($departments as $department):
+      $deptCourses = [];
+      foreach ($allCourses as $course) {
+        if ($course->department_id == $department->department_id) {
+          $deptCourses[] = $course;
+        }
+      }
+      if (empty($deptCourses)) continue;
+    ?>
         <?php if (!empty($deptCourses)): ?>
         <section class="dept-section">
           <div class="dept-header">
             <h2><?php echo htmlspecialchars($department->department_name); ?></h2>
-            <span class="dept-badge"><?php echo count($deptCourses); ?> course<?php echo count($deptCourses) !== 1 ? 's' : ''; ?></span>
-          </div>
+                    </div>
           <p class="dept-sub">Explore our range of <?php echo htmlspecialchars($department->department_name); ?> courses</p>
           <hr class="dept-rule">
           <div class="scroll-track">

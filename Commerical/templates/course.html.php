@@ -1,7 +1,6 @@
 <div class='courseObj'>
     <h2> <?php echo $courseTitle?> </h2>
     <p><strong>Course Description: </strong> <?php echo $courseDescription?> </p>
-    <h3>Modules: </h3>
 
     </br>
     <div>

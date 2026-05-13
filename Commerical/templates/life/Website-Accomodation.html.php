@@ -1,8 +1,3 @@
-<?php
-require "../includes/Website-Mockup-HEADER.html";
-?>
-
-
 <hr id="gap">
 <div class="MainContent">
     <img src="https://picsum.photos/536/364" alt="">
@@ -15,7 +10,3 @@ require "../includes/Website-Mockup-HEADER.html";
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta numquam accusamus nostrum cum, dolores assumenda aut quae amet ad maiores facilis sunt, magni eligendi recusandae quis quod pariatur aliquam. Harum.
 </p>
 </div>
-
-<?php
-require "../includes/Website-Mockup-FOOTER.html";
-?>
