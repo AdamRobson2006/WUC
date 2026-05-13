@@ -1,33 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
 <header>
-<aside>
-  <nav class="Menu">
-    <p id="menuBtn">Menu</p>
-    <ul class="dropdown" id="sideBarNav">
-      <li class="closeBtn">
-        <button id="closeBtn">-</button>
-      </li>
-    <li><a id="hideLink" href="/RMS/Options/RMS-Mockup-StudentRec.html.php" >Student Records</a></li>
-    <li><a id="hideLink" href="/RMS/Options/RMS-Mockup-StaffRec.html.php" >Staff Records</a></li>
-    <li><a id="hideLink" href="/RMS/Options/RMS-Mockup-CourseRec.html.php" >Course's</a></li>
-    <li><a id="hideLink" href="/RMS/Options/RMS-Mockup-Timetable.html.php" >Timetable Management</a></li>
-    <li><a id="hideLink" href="/RMS/Options/RMS-Mockup-Document.html.php" >Cabinet</a></li>
-    <li><a id="hideLink" href="/RMS/Options/RMS-Mockup-Archive.html.php" >Archive</a></li>
-      <!-- Gonna try to add the Logo here -->
-    <hr style="height: 4px; background-color: #f5f5f5;; border: none; border-radius: 6px;">
-    <li><a id="hideLink" href="/Website/Index/Website-Mockup-Home.html.php" >Head to website</a></li>
-    </ul>
-  </nav>
-</aside>
-    <div class="Logo">
-        <a id="hideLink" href="home"><img src="/images/Logo-removebg-preview.png"
- alt="Logo"></a>
-    </div>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <aside>
+    <nav class="Menu">
+      <p id="menuBtn">Menu</p>
+      <ul class="dropdown" id="sideBarNav">
+        <li class="closeBtn">
+          <button id="closeBtn">-</button>
+        </li>
+        <li><a id="hideLink" href="/studentRecords">Student Records</a></li>
+        <li><a id="hideLink" href="/staffRecords">Staff Records</a></li>
+        <li><a id="hideLink" href="/courseRecords">Courses</a></li>
+        <li><a id="hideLink" href="/timetable">Timetable Management</a></li>
+        <li><a id="hideLink" href="/cabinet">Cabinet</a></li>
+        <li><a id="hideLink" href="/archive">Archive</a></li>
+        <li><a id="hideLink" href="/chat">Staff Chat</a></li>
+        <hr style="height: 4px; background-color: #f5f5f5; border: none; border-radius: 6px;">
+        <li><a id="hideLink" href="/adminEnrolment">Admin Enrolment</a></li>
+        <li><a id="hideLink" href="/adminGrade">Admin Grade Approval</a></li>
+        <?php if (($_SESSION['user_role'] ?? '') === 'AD'): ?>
+        <hr style="height: 4px; background-color: #f5f5f5; border: none; border-radius: 6px;">
+        <li><a id="hideLink" href="/manageUsers">Manage Users</a></li>
+        <?php endif; ?>
+      </ul>
+    </nav>
+  </aside>
+  <div class="Logo">
+    <a id="hideLink" href="/home"><img src="/images/Logo-removebg-preview.png" alt="Logo"></a>
+  </div>
+  <?php if (isset($_SESSION['user_name'])): ?>
+  <div class="Profile" style="margin-right:24px;display:flex;align-items:center;gap:14px;">
+    <p style="color:white;font-size:14px;font-weight:500;"><?= htmlspecialchars($_SESSION['user_name'], ENT_QUOTES, 'UTF-8') ?></p>
+    <a href="/logout"
+       style="color:white;background:#80748C;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;">
+      Logout
+    </a>
+  </div>
+  <?php endif; ?>
 </header>

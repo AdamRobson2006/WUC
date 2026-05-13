@@ -82,6 +82,10 @@ USE `wuc-schema`;
     course_description VARCHAR(255) NOT NULL,
 	department_id INT(4) NOT NULL,
     award_map LONGBLOB NULL,
+    duration VARCHAR(20) NULL,
+    study_mode VARCHAR(30) NULL,
+    entry_requirements VARCHAR(50) NULL,
+    award_type VARCHAR(20) NULL,
     PRIMARY KEY (course_id)
     )ENGINE=INNODB;
     
@@ -119,11 +123,12 @@ USE `wuc-schema`;
     home_address VARCHAR(40),
     phone_number VARCHAR(20) NOT NULL,
     email VARCHAR(254) NOT NULL,
-    offer_letter LONGBLOB NOT NULL,
+    offer_letter LONGBLOB NULL,
     degree_classification DECIMAL(5,2),
     emergency_contact INT(8) NOT NULL,
     record_status INT(7) NOT NULL,
     course_id INT(4) NOT NULL,
+    password_hash VARCHAR(255) NULL,
     PRIMARY KEY (student_id)
     )ENGINE=INNODB;
 
@@ -162,6 +167,7 @@ USE `wuc-schema`;
     specialism VARCHAR(50) NOT NULL,
     emergency_contact INT(8) NOT NULL,
     record_status INT(7) NOT NULL,
+    password_hash VARCHAR(255) NULL,
     PRIMARY KEY (staff_id)
     )ENGINE=INNODB;
 
@@ -183,7 +189,7 @@ USE `wuc-schema`;
     
     CREATE TABLE assignments (
     assignment_id INT(4) NOT NULL AUTO_INCREMENT,
-    assignment_brief LONGBLOB NOT NULL,
+    assignment_brief LONGBLOB NULL,
     pass_grade DECIMAL(5,2) NOT NULL,
     total_marks DECIMAL(5,2) NOT NULL,
     examiner INT(8) NOT NULL,
