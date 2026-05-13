@@ -124,6 +124,7 @@ USE `wuc-schema`;
     emergency_contact INT(8) NOT NULL,
     record_status INT(7) NOT NULL,
     course_id INT(4) NOT NULL,
+    password_hash VARCHAR(255) NULL,
     PRIMARY KEY (student_id)
     )ENGINE=INNODB;
 
@@ -162,6 +163,7 @@ USE `wuc-schema`;
     specialism VARCHAR(50) NOT NULL,
     emergency_contact INT(8) NOT NULL,
     record_status INT(7) NOT NULL,
+    password_hash VARCHAR(255) NULL,
     PRIMARY KEY (staff_id)
     )ENGINE=INNODB;
 

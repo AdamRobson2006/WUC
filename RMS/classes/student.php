@@ -17,6 +17,7 @@ class student {
     public $emergency_contact;
     public $record_status;
     public $course_id;
+    public $password_hash;
 
     private static $attributeMap = [
         'student_id' => 'studentID',
