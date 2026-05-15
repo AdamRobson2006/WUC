@@ -203,14 +203,12 @@ class controllerRMS {
 
     $studentsArray = [];
 
-    $sevenYearsAgo = new \DateTime('-7 years');
-
     foreach ($currentStudents as $student) {
 
         $connectedCourse = $this->coursesTable->find('course_id', $student->course_id)[0];
     
         array_push($studentsArray, loadTemplate(
-            __DIR__ . '/../templates/RMS-Mockup-StudentLink.html.php',
+            __DIR__ . '/../templates/options/studentRec/RMS-Mockup-StudentLink.html.php',
             [
             
                 'student_id' => $student->student_id,
@@ -253,7 +251,7 @@ class controllerRMS {
         $connectedCourse = $this->coursesTable->find('course_id', $student->course_id)[0];
     
         array_push($studentsArray, loadTemplate(
-            __DIR__ . '/../templates/RMS-Mockup-StudentLink.html.php',
+            __DIR__ . '/../templates/options/studentRec/RMS-Mockup-StudentLink.html.php',
             [
             
                 'student_id' => $student->student_id,
@@ -294,13 +292,91 @@ class controllerRMS {
     }
 
     public function staCurrent() {
-        $output = loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaCurrent.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Current Staff', 'output' => $output]);
+
+    $staff = $this->staffTable->findAll();
+
+    $currentStaff = [];
+
+    foreach ($staff as $staffMember) {
+
+        $connectedStatus = $this->recordStatusesTable->find('status_id', $staffMember->record_status)[0];
+
+        if ($connectedStatus->status == 1) {
+        array_push($currentStaff, $staffMember);
+        }
+
+    }
+
+    $staffArray = [];
+
+    foreach ($currentStaff as $staffMember) {
+
+   
+        array_push($staffArray, loadTemplate(
+            __DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaffLink.html.php',
+            [
+            
+                'staff_id' => $staffMember->staff_id,
+               
+            ]
+        ));
+    }
+
+    $staffOutput = implode(" ", $staffArray);
+
+    $output = loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaCurrent.html.php', ['title' => 'Current Staff', 'staffOutput' => $staffOutput]);
+    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Current Staff', 'output' => $output]);
+    
     }
 
     public function staPast() {
-        $output = loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaPast.html.php', []);
-        echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Past Staff', 'output' => $output]);
+
+    $staff = $this->staffTable->findAll();
+
+    $currentStaff = [];
+
+    foreach ($staff as $staffMember) {
+
+        $connectedStatus = $this->recordStatusesTable->find('status_id', $staffMember->record_status)[0];
+
+        if ($connectedStatus->status == 0) {
+        array_push($currentStaff, $staffMember);
+        }
+
+    }
+
+    $staffArray = [];
+
+    foreach ($currentStaff as $staffMember) {
+
+   
+        array_push($staffArray, loadTemplate(
+            __DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaffLink.html.php',
+            [
+            
+                'staff_id' => $staffMember->staff_id,
+               
+            ]
+        ));
+    }
+
+    $staffOutput = implode(" ", $staffArray);
+
+    $output = loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaCurrent.html.php', ['title' => 'Past Staff', 'staffOutput' => $staffOutput]);
+    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Past Staff', 'output' => $output]);
+    
+    }
+
+    public function staView() {
+    
+    $staff_id = $_GET['staff_id'];
+
+    $staffMember = $this->staffTable->find('staff_id', $staff_id)[0];
+
+    $staffOutput = loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaffProfile.html.php', ['staffMember' => $staffMember]);
+    $output = loadTemplate(__DIR__ . '/../templates/options/staffRec/RMS-Mockup-StaCurrent.html.php', ['title' => "Current Staff", 'staffOutput' => $staffOutput]);
+    echo loadTemplate(__DIR__ . '/../templates/layout.html.php', ['title' => 'Current Staff', 'output' => $output]);
+
     }
 
     public function staffProfile() {
@@ -629,17 +705,14 @@ public function downloadDOCX() {
 }
 
 
-public function downloadFile() {
-
-
-
-
-
-}
 
 
 
 }
+
+
+
+
 
 
 

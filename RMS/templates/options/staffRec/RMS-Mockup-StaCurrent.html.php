@@ -7,10 +7,13 @@
     </ul>
 </div>
 
-<h1>Current Staff</h1>
+<h1> <?php echo $title ?></h1>
 
 <!--LIST OF STAFF! -->
 <section class="List">
+
+<?php echo $staffOutput ?>
+
 </section>
 
 <!--Selected -->
@@ -25,9 +28,6 @@
     </div>
     <div class="Recoption">
         <a id="hideLink" href="/timetable">Timetable</a>
-    </div>
-    <div class="Recoption">
-        <a id="hideLink" href="">Contact</a>
     </div>
         <div class="Recoption">
         <p>Grading</p>
