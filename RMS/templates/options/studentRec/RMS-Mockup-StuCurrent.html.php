@@ -7,23 +7,19 @@
     </ul>
 </div>
 
-<h1>Current Student</h1>
+<h1> <?php echo $title ?></h1>
 
 <!--LIST OF STUDENTS! -->
 <section class="List">
+
+<?php echo $studentOutput ?>
+
 </section>
 
-<!--Selected -->
-<section id="Selected">
-<p>Selected; <p id="selection"> John Doe - 111111111 / Course</p> </p>
-</section>
+
 
 <!--Options -->
 <section id="RecOptions">
-    <div class="Recoption">
-        <a id="hideLink" href="/studentProfile">View Student</a>
-    </div>
-    </div>
     <div class="Recoption">
         <a id="hideLink" href="/timetable">Timetable</a>
     </div>

@@ -11,6 +11,9 @@
 
 <!--LIST OF STAFF! -->
 <section class="List">
+
+<?php echo $studentOutput ?>
+
 </section>
 
 <!--Selected -->

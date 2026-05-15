@@ -277,8 +277,7 @@ font-weight: bold;
 
 .List {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   height: 73vh;
   margin: 5%;
   background-color: #80748c9f;
