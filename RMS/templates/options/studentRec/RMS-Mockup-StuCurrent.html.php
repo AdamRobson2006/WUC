@@ -23,12 +23,6 @@
     <div class="Recoption">
         <a id="hideLink" href="/timetable">Timetable</a>
     </div>
-    <div class="Recoption">
-        <a id="hideLink" href="">Contact</a>
-    </div>
-    <div class="Recoption">
-        <p>Grademap</p>
-    </div>
 </section>
 
 <?php

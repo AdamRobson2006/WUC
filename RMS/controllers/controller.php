@@ -617,6 +617,27 @@ public function send() {
 }
 
 
+public function downloadDOCX() {
+
+    $student = $this->studentsTable->find('student_id', $_GET['student_id'])[0];
+
+    header("Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+    header("Content-Disposition: attachment");
+
+    echo $student->offer_letter;
+    exit;
+}
+
+
+public function downloadFile() {
+
+
+
+
+
+}
+
+
 
 }
 
